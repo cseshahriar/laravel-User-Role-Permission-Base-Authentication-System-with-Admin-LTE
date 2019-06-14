@@ -49,6 +49,12 @@
                                 </li>
                             @endif
                         @else
+                            @can('admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dashboard') }}" role="button">Admin Dashboard</a>  
+                            </li>    
+                            @endcan  
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -67,12 +73,6 @@
                                 </div>
                             </li>
 
-                            @can('admin')
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dashboard') }}" role="button">Dashboard</a>  
-                            </li>    
-                            @endcan 
-                           
                         @endguest
                     </ul>
                 </div>
