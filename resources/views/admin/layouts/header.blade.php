@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
-        page. However, you can choose any other skin. Make sure you
-        apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.min.css') }}"> 
-
+  <!-- AdminLTE Skins. -->
+  <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.min.css') }}">  
+  {{-- toastr --}}
+  <link rel="stylesheet" href="{{ asset('admin/css/toastr.min.css') }}"> 
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -56,11 +56,11 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="index2.html" class="logo"> 
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>N</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>App</b>Name</span>
+      <span class="logo-lg"><b>{{ config('app.name') }}</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -175,17 +175,16 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <img src="{{ asset(Auth::user()->image) }}" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
+              <!-- The user image in the menu --> 
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                <img src="{{ asset(Auth::user()->image) }}" class="img-circle" alt="User Image">  
                 <p>
-                  {{ Auth::user()->name }} - Web Developer
+                  {{ Auth::user()->name }} - {{ Auth::user()->designation }}
                   <small>Member since {{ Carbon\Carbon::parse(Auth::user()->created_at)->format('M. Y') }}</small>
                 </p>
               </li>
@@ -207,7 +206,7 @@ desired effect
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{ route('admin.profile') }}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
@@ -223,10 +222,12 @@ desired effect
               </li>
             </ul>
           </li>
+
           <!-- Control Sidebar Toggle Button -->
-          <li>
+          <!-- <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li>--> 
+
         </ul>
       </div>
     </nav>

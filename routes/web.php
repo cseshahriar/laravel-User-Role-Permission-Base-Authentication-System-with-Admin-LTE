@@ -19,11 +19,15 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
 
+    // user route
     Route::get('/user', 'UsersController@user')->name('user');  
 
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
-   
-    Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');  
+
+    Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
+ 
+    Route::get('/adminprofile', 'UsersController@adminProfile')->name('admin.profile');    
+    Route::post('/adminprofile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
 });
 
 Route::get('/home', 'HomeController@index')->name('home'); 
