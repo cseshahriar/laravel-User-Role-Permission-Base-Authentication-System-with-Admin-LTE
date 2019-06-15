@@ -28,6 +28,9 @@ Route::group(['middleware' => ['auth']], function() {
  
     Route::get('/adminprofile', 'UsersController@adminProfile')->name('admin.profile');    
     Route::post('/adminprofile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
+
+    // manage users 
+    Route::get('/users', 'UsersController@users')->name('users');   
 });
 
 Route::get('/home', 'HomeController@index')->name('home'); 

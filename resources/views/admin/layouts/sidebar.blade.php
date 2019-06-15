@@ -23,7 +23,13 @@
   <ul class="sidebar-menu" data-widget="tree">
     <li class="header">Dashboard</li>
     <!-- Optionally, you can add icons to the links -->
-    <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
+    <li class="{{ (request()->is('users*')) ? 'active' : '' }}">  
+    <a href="{{ route('users') }}">
+        <i class="fa fa-users"></i> 
+        <span>Manage Users</span>  
+      </a>
+    </li>
+
     <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
     <li class="treeview">
       <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>

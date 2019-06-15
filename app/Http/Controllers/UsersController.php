@@ -35,11 +35,17 @@ class UsersController extends Controller
         return view('nopermission');   
     }
 
+    /**
+    * Return admin profile view 
+    */
     public function adminProfile()
     {
         return view('admin.profile');
     }
 
+    /**
+     * Admin Profile Update
+     */
     public function adminProfileUpdate(Request $request)
     {
         $userId = Auth::user()->id;
@@ -96,5 +102,14 @@ class UsersController extends Controller
         }
 
 
+    }
+
+    /**
+     * Manage users
+     */
+    public function users()
+    {
+        $users = User::all();
+        return view('admin.users.index', compact('users'));
     }
 }
