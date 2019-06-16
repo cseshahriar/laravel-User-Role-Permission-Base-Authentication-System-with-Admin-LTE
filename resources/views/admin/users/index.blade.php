@@ -10,13 +10,13 @@
         <small>Manage Users</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Users</a></li>
+        <li><a href="#"><i class="fa fa-users"></i> Users</a></li>
         <li class="active">Manage</li>
       </ol>
     </section>
 
     <!-- Main content -->
-    <section class="content container-fluid"> 
+    <section class="content container-fluid">    
 
       <!--------------------------
         | Your Page Content Here |
@@ -25,13 +25,13 @@
                 <div class="box-header">
                   <h3 class="box-title" style="display:block">Manage Users
                       <span class="pull-right" style="display:inline-block">
-                          <a class="btn btn-primary btn-sm">Add New</a>
+                          <a class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> Add New</a>
                       </span> 
                   </h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example1" class="table table-bordered table-striped">
+                  <table class="datatable table table-bordered table-striped">
                     <thead>
                     <tr>
                       <th>#</th>
@@ -53,11 +53,11 @@
                       <td>{{ $user->email }}</td>
                       <td>{{ $user->mobile }}</td>
                       <td>{{ $user->designation }}</td>
-                      <td>
-                        @foreach($user->roles as $role)
-                        <p>{{ ucfirst($role->name) }}</p>  
-                        @endforeach
-                      </td>
+                      <ul style="list-stule:disc;">
+                          @foreach($user->roles as $role)
+                          <li>{{ ucfirst($role->name) }}</li>  
+                          @endforeach
+                      </ul> 
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
                           <div class="button-group">

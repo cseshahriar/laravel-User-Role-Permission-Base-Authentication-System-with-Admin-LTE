@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]); 
 
-Route::group(['middleware' => ['auth']], function() {
+Route::group(['middleware' => ['auth', 'verified']], function() {
 
     // user route
     Route::get('/user', 'UsersController@user')->name('user');  
@@ -30,7 +30,14 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/adminprofile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
 
     // manage users 
-    Route::get('/users', 'UsersController@users')->name('users');   
+    Route::get('/users', 'UsersController@users')->name('users');    
+
+    // Manage Roles
+    Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    
+    
+    Route::get('/roles/roleusercreate', 'RolesController@roleusercreate')->name('roles.roleusercreate');  
+
+    Route::resource('roles', 'RolesController');        
 });
 
 Route::get('/home', 'HomeController@index')->name('home'); 
