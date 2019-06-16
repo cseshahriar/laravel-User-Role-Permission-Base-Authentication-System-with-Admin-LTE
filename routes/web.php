@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true]); 
+Auth::routes(['verify' => true]);  
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
 
@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    
     
     Route::get('/roles/roleusercreate', 'RolesController@roleusercreate')->name('roles.roleusercreate');  
+    Route::post('/roles/roleuserstore', 'RolesController@roleuserstore')->name('roles.roleuserstore');  
 
     Route::resource('roles', 'RolesController');        
 });

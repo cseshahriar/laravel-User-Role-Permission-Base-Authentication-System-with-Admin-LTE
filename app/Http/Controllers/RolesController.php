@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB; 
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class RolesController extends Controller
     {
         $roles = Role::all();
         return view('admin.roles.index', compact('roles')); 
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -152,8 +153,57 @@ class RolesController extends Controller
 
     public function roleusercreate()
     {
-        $users = User::all(); 
-        $roles = Role::all();
+        /**
+         * return wher not assign role for user
+         */
+
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->select('users.*')
+        ->whereNull('role_user.user_id') 
+        ->whereNull('role_user.role_id')  
+        ->get();
+
+        $roles = Role::all(); 
         return view('admin.roles.roleusercreate', compact('users', 'roles'));  
+    }
+
+    public function roleuserstore(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|numeric',
+            'role_id' => 'nullable|array|min:1'
+        ]); 
+    
+       $userid = $request->user_id; 
+       $roleAssigns = [];
+       foreach($request->role_id as $role){
+          $roleAssigns[] = [
+              'role_id' => $role,
+              'user_id' => $userid 
+          ];
+       }
+     
+      $save = DB::table('role_user')->insert($roleAssigns);  
+
+      if($save) {
+        $notification = array(
+            'message' => 'Role assaign for user successfully.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('roles.roleuser')->with($notification);
+
+    } else {
+    
+        $notification = array(
+            'message' => 'Oops! Something went wrong', 
+            'alert-type' => 'error'
+        ); 
+
+        return redirect()->back()->with($notification);  
+
+    }
+
     }
 }

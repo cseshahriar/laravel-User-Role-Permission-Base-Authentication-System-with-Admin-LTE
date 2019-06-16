@@ -30,12 +30,12 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
-                    <form action="{{ route('roles.store') }}" method="post">
+                    <form action="{{ route('roles.roleuserstore') }}" method="post"> 
                         @csrf 
                     
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <label for="users">Select User</label>
+                                <label for="users">Select User</label> 
                                 <select name="user_id" id="user_id" class="form-control">
                                     <option value="" disabled selected> Select User </option>
                                     @foreach($users as $user)
