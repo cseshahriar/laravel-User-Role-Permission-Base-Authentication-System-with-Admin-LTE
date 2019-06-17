@@ -21,16 +21,18 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     // user route
     Route::get('/user', 'UsersController@user')->name('user');  
-
+    
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
 
     Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
  
-    Route::get('/adminprofile', 'UsersController@adminProfile')->name('admin.profile');    
-    Route::post('/adminprofile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
+    Route::get('/admin/profile', 'UsersController@adminProfile')->name('admin.profile');    
+    Route::post('/admin/profile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
 
     // manage users 
     Route::get('/users', 'UsersController@users')->name('users');    
+    Route::resource('users', 'UsersController');    
+
 
     // Manage Roles
     Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    

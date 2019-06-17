@@ -25,7 +25,7 @@
                 <div class="box-header">
                   <h3 class="box-title" style="display:block">Manage Users
                       <span class="pull-right" style="display:inline-block">
-                          <a class="btn btn-primary btn-sm"> <i class="fa fa-plus"></i> Add New</a>
+                      <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}"> <i class="fa fa-plus"></i> Add New</a>
                       </span> 
                   </h3>
                 </div>
@@ -53,11 +53,13 @@
                       <td>{{ $user->email }}</td>
                       <td>{{ $user->mobile }}</td>
                       <td>{{ $user->designation }}</td>
-                      <ul style="list-stule:disc;">
+                      <td>
+                        <ul style="list-stule:disc;">
                           @foreach($user->roles as $role)
                           <li>{{ ucfirst($role->name) }}</li>  
                           @endforeach
                       </ul> 
+                      </td> 
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
                           <div class="button-group">
@@ -96,4 +98,4 @@
 <!-- /.content-wrapper -->
 @endsection 
 
-@section('title', 'Manage Users')  
+@section('title', 'Manage Users')   

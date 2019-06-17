@@ -31,9 +31,9 @@
     </li>
 
     <li class="{{ (request()->is('users*')) ? 'active' : '' }}">  
-    <a href="{{ route('users') }}">
+    <a href="{{ route('users.index') }}"> 
         <i class="fa fa-users"></i> 
-        <span>Manage Users</span>  
+        <span>Manage Users</span>   
       </a>
     </li>
 

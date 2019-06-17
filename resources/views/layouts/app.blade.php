@@ -50,8 +50,8 @@
                             @endif
                         @else
                             @can('admin')
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('dashboard') }}" role="button">Admin Dashboard</a>  
+                            <li class="nav-item"> 
+                                <a class="nav-link" href="{{ route('dashboard') }}" role="button">Manage Application</a>  
                             </li>    
                             @endcan  
 

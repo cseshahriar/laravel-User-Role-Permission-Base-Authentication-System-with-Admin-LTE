@@ -104,12 +104,58 @@ class UsersController extends Controller
 
     }
 
-    /**
-     * Manage users
-     */
-    public function users()
+   /**
+    * Return users 
+    *
+    * @return array
+    */
+    public function index()
     {
         $users = User::all();
         return view('admin.users.index', compact('users'));
+    } 
+
+    public function create()
+    {
+        return view('admin.users.create');    
+    }
+
+    public function store(Request $request)
+    {
+        // 'password', 'designation', 'education', 'skills', 'image', 'mobile', 'phone', 'address', 'bio'
+        $request->validate([
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+            'designation' => 'nullable|string',
+            'education' => 'nullable|string',
+            'skills' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:1024',
+            'mobile' => 'required|numeric',
+            'phone' => 'nullable|numeric',
+            'address' => 'nullable|string',
+            'bio' => 'nullable|string', 
+        ]); 
+
+    }
+
+    public function show($id)
+    {
+
+    }
+
+    public function edit($id)
+    {
+
+    }
+    
+    public function update(Request $request, $id)
+    {
+
+    }
+
+    public function destroy($id)
+    {
+
     }
 }
