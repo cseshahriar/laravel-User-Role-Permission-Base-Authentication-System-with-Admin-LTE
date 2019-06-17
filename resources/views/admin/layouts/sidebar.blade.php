@@ -55,7 +55,21 @@
       </ul> 
     </li>
 
-    <li class="header">Reports</li> 
+    <li class="treeview"> 
+        <a href="#">
+          <i class="fa fa-lock"></i> 
+          <span>Manage Permissions</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span> 
+        </a>
+        <ul class="treeview-menu"> 
+        <li>
+          <a href="">Manage Role Permissions</a></li>     
+        </ul> 
+      </li>
+
+    <li class="header">Reports</li>  
 
     <li>
         <a href="{{ route('logout') }}"

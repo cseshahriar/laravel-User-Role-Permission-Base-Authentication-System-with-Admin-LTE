@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use DB; 
-use App\Role; 
 use Auth; 
 use Image; 
+use App\Role; 
 use App\User; 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class UsersController extends Controller 
 {
@@ -64,7 +64,7 @@ class UsersController extends Controller
             'bio' => 'nullable|string',   
         ]);
 
-        $User = User::find($userId);  
+        $User = User::find($userId);    
 
         $User->name = $request->name; 
         $User->designation = $request->designation; 
@@ -113,7 +113,7 @@ class UsersController extends Controller
     */
     public function index()
     {
-        $users = User::all();
+        $users = User::all(); 
         return view('admin.users.index', compact('users'));
     } 
 
