@@ -62,7 +62,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo"> 
+  <a href="{{ route('dashboard') }}" class="logo"> 
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>N</span>
       <!-- logo for regular state and mobile devices -->
@@ -195,7 +195,7 @@ desired effect
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <li class="user-body"> 
                 <div class="row">
                   <div class="col-xs-4 text-center">
                   

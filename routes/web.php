@@ -4,22 +4,25 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+/**
+ * Auth routes with email verified
+ */
 Auth::routes(['verify' => true]);  
 
+/**
+ * Authenticated routes for admin panel 
+ */
 Route::group(['middleware' => ['auth', 'verified']], function() {
 
-    // user route
+    /**
+     * User custom auth routes
+     */
     Route::get('/user', 'UsersController@user')->name('user');  
     
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
@@ -29,18 +32,34 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/admin/profile', 'UsersController@adminProfile')->name('admin.profile');    
     Route::post('/admin/profile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
 
-    // manage users 
+    /**
+     * User CRUD Routes 
+     */
     Route::get('/users', 'UsersController@users')->name('users');    
     Route::resource('users', 'UsersController');    
 
 
-    // Manage Roles
+    /**
+     * Roles Routes
+     */
     Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    
     
     Route::get('/roles/roleusercreate', 'RolesController@roleusercreate')->name('roles.roleusercreate');  
     Route::post('/roles/roleuserstore', 'RolesController@roleuserstore')->name('roles.roleuserstore');  
 
-    Route::resource('roles', 'RolesController');        
+    /**
+     * Role CRUD Routes
+     */
+    Route::resource('roles', 'RolesController');   
+       
+    
+    /**
+     * Permission Routes
+     */
+    Route::resource('roles', 'PermissionsController'); 
 });
 
+/**
+ * User home route
+ */
 Route::get('/home', 'HomeController@index')->name('home'); 

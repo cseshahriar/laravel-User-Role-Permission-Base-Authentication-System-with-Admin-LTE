@@ -12,15 +12,15 @@
     <div class="pull-left info">
       <p>{{ Auth::user()->name }}</p> 
       <!-- Status -->
-      <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+    <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> Online</a>
     </div>
-  </div>
+  </div>  
 
   <!-- search form (Optional) -->
   <!-- /.search form -->
 
   <!-- Sidebar Menu -->
-  <ul class="sidebar-menu" data-widget="tree">
+  <ul class="sidebar-menu" data-widget="tree">  
     <li class="header">HEADER</li> 
     <!-- Optionally, you can add icons to the links -->
     
