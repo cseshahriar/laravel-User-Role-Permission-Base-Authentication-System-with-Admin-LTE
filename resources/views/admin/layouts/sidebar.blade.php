@@ -29,13 +29,14 @@
         <span>Dashboard</span>
       </a>
     </li>
-
+ 
     <li class="{{ (request()->is('users*')) ? 'active' : '' }}">  
-    <a href="{{ route('users.index') }}"> 
+      <a href="{{ route('users.index') }}"> 
         <i class="fa fa-users"></i> 
         <span>Manage Users</span>   
       </a>
     </li>
+
 
     <li class="treeview {{ (request()->is('roles*')) ? 'active' : '' }}"> 
       <a href="#">
@@ -46,11 +47,11 @@
         </span> 
       </a>
       <ul class="treeview-menu">
-      <li>
+      <!-- <li>
         <a href="{{ route('roles.index') }}">User Roles</a>
-      </li> 
+      </li> --> 
       <li>
-        <a href="{{ route('roles.roleuser') }}">Add Role For User</a></li>     
+        <a href="{{ route('roles.roleuser') }}">Manage User Roles</a></li>     
       </ul> 
     </li>
 

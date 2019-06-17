@@ -62,6 +62,7 @@
                       </td> 
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
+                          @can('superadmin')
                           <div class="button-group">
                             <a href="{{ route('users.show', $user->id) }}"><i class="fa fa-eye text-success" style="display:inline-block;margin-right:10px"></i></a>
 
@@ -76,8 +77,11 @@
                                   <i class="fa fa-trash"></i>     
                                 </button>     
                               </form> 
-                          </div>    
-                      </td>
+                          </div>   
+                          @else 
+                            <span class="text-danger">You have't permission</span>  
+                          @endcan
+                      </td> 
                     </tr>
                     @endforeach
                    </tbody>

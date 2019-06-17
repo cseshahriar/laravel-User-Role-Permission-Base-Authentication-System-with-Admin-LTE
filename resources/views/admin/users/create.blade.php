@@ -1,3 +1,4 @@
+
 @extends('admin.layouts.app') 
 
 @section('content')
@@ -30,6 +31,8 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
+                    
+                    @can('superadmin')
                     <form class="form-horizontal" action="{{ route('users.store') }}" method="post">
                         @csrf 
                     
@@ -150,7 +153,11 @@
                                 <button type="submit" class="btn btn-success" style="margin-top:10px">Add New User</button>
                             </div> 
                         </div>  
-                    </form>   
+                    </form>  
+                    @else 
+                    <p class="alert alert-danger">Opps! You have no permission for this action!</p>
+                    @endcan  
+
                   </div>
             </div>
         </div>

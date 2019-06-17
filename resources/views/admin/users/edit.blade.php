@@ -29,7 +29,9 @@
                 <div class="panel-body">
                       
                     <!-- errors -->
-                    @include('admin.partials.errors') 
+                    @include('admin.partials.errors')  
+
+                    @can('superadmin')
                     <form class="form-horizontal" action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                         
                         @csrf 
@@ -152,6 +154,10 @@
                             </div> 
                         </div>  
                     </form>   
+                    @else 
+                    <p class="alert alert-danger">Opps! You have no permission for this action!</p>
+                    @endcan 
+
                   </div>
             </div>
         </div>
