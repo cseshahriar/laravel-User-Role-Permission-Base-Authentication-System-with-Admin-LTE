@@ -56,7 +56,7 @@
                       <td>
                         <ul style="list-stule:disc;">
                           @foreach($user->roles as $role)
-                          <li>{{ ucfirst($role->name) }}</li>  
+                          <li>{{ ucfirst($role->name) }}</li>   
                           @endforeach
                       </ul> 
                       </td> 
@@ -65,9 +65,17 @@
                           <div class="button-group">
                             <a href=""><i class="fa fa-eye text-success" style="display:inline-block;margin-right:10px"></i></a>
 
-                            <a href=""><i class="fa fa-pencil-square text-info"></i></a>
+                          <a href="{{ route('users.edit', $user->id)}}"><i class="fa fa-pencil-square text-info"></i></a>
 
-                            <a href=""><i class="fa fa-trash text-danger" style="display:inline-block;margin-left:10px"></i></a>
+                            <form id="delete-form" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline;border:0">  
+                              
+                                @csrf   
+                                @method('DELETE')      
+      
+                                <button class="text-danger delete" type="submit" style="border:0;background:none">	  
+                                  <i class="fa fa-trash"></i>     
+                                </button>     
+                              </form> 
                           </div>    
                       </td>
                     </tr>
@@ -99,3 +107,34 @@
 @endsection 
 
 @section('title', 'Manage Users')   
+
+@section('scripts') 
+<script> 
+	$(document).on('click', '.delete', function(e) { 
+          
+          var form = $(this).parents('form:first'); 
+
+         var confirmed = false;
+
+           e.preventDefault();
+          
+           swal({
+               title : 'Are you sure want to delete?',
+               text : "Onec Delete, This will be permanently delete!",
+               icon : "warning",
+               buttons: true,
+               dangerMode : true
+           }).then((willDelete) => { 
+               if (willDelete) {
+                   // window.location.href = link;
+                   confirmed = true;
+
+               form.submit();         
+
+               } else {
+                   swal("Safe Data!");   
+               }
+           });
+       });
+</script>
+@endsection 

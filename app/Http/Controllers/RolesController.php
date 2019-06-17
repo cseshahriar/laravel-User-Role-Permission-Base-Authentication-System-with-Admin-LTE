@@ -177,7 +177,7 @@ class RolesController extends Controller
     
        $userid = $request->user_id; 
        $roleAssigns = [];
-       foreach($request->role_id as $role){
+       foreach($request->role_id as $role) {
           $roleAssigns[] = [
               'role_id' => $role,
               'user_id' => $userid 
