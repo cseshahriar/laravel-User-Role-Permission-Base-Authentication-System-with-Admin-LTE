@@ -63,9 +63,9 @@
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
                           <div class="button-group">
-                            <a href=""><i class="fa fa-eye text-success" style="display:inline-block;margin-right:10px"></i></a>
+                            <a href="{{ route('users.show', $user->id) }}"><i class="fa fa-eye text-success" style="display:inline-block;margin-right:10px"></i></a>
 
-                          <a href="{{ route('users.edit', $user->id)}}"><i class="fa fa-pencil-square text-info"></i></a>
+                          <a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
 
                             <form id="delete-form" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline;border:0">  
                               

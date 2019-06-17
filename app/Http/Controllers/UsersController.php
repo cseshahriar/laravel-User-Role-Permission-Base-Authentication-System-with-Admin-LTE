@@ -198,7 +198,9 @@ class UsersController extends Controller
 
     public function show($id)
     {
-
+        $roles = Role::all(); 
+        $user = User::find($id);  
+        return view('admin.users.show', compact('roles', 'user'));  
     }
 
     public function edit($id)
