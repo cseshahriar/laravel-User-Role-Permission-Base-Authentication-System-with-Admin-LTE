@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Roles
-        <small>Manage Roles</small>
+        Permissions
+        <small>Manage Permissions</small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="{{ route('roles.index') }}"><i class="fa fa-users"></i>Role</a></li>
-        <li class="active">Manage</li>  
+      <li><a href="{{ route('permission.index') }}"><i class="fa fa-users"></i>Permissions</a></li>
+        <li class="active">Manage Permissions</li>  
       </ol>
     </section>
 
@@ -23,9 +23,9 @@
         -------------------------->
         <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title" style="display:block">Manage Roles
+                  <h3 class="box-title" style="display:block">Manage Permissions
                       <span class="pull-right" style="display:inline-block">
-                      <a class="btn btn-primary btn-sm" href="{{ route('roles.create') }}"> <i class="fa fa-plus"></i> Add New</a>
+                      <a class="btn btn-primary btn-sm" href="{{ route('permission.create') }}"> <i class="fa fa-plus"></i> Add New</a>
                       </span> 
                   </h3>
                 </div>
@@ -41,19 +41,19 @@
                     </thead>
 
                     <tbody>
-                    @foreach($roles as $role)
+                    @foreach($permissions as $permission) 
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ ucfirst($role->name) }}</td> 
+                      <td>{{ ucwords($permission->name) }}</td> 
                       <td>
                           <div class="button-group">
 
-                            <a href="{{ route('roles.edit', $role->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
+                            <a href="{{ route('permission.edit', $permission->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
 
-                            <form id="delete-form" action="{{ route('roles.destroy', $role->id) }}" method="post" style="display: inline;border:0">  
+                            <form id="delete-form" action="{{ route('permission.destroy', $permission->id) }}" method="post" style="display: inline;border:0">  
                               
                               @csrf   
-                              @method('DELETE')     
+                              @method('DELETE')      
     
                               <button class="text-danger delete" type="submit" style="border:0;background:none">	  
                                 <i class="fa fa-trash"></i>    
@@ -70,7 +70,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th> 
-                            <th>Actions</th>
+                            <th>Actions</th> 
                         </tr> 
                     </tfoot>
                   </table>
@@ -85,7 +85,7 @@
 <!-- /.content-wrapper -->
 @endsection 
 
-@section('title', 'Manage Roles')  
+@section('title', 'Manage Permissions')     
 
 @section('scripts') 
 <script> 
@@ -115,5 +115,5 @@
                }
            });
        });
-</script>
+</script> 
 @endsection 

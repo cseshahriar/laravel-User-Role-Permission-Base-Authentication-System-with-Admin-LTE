@@ -14,7 +14,8 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        //
+        $permissions = Permission::all();  
+        return view('admin.permissions.index', compact('permissions')); 
     }
 
     /**
@@ -24,7 +25,7 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.permissions.create');
     }
 
     /**
@@ -35,7 +36,29 @@ class PermissionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:permissions'
+        ]);
+
+        $permission = new Permission();
+        $permission->name = $request->name;
+        $save = $permission->save();
+
+        if($save) {
+            $notification = array(
+                'message' => 'Permission created successfully.',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('permission.index')->with($notification);
+        } else {
+            $notification = array(
+                'message' => 'Opps! something went wrong.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
     }
 
     /**
@@ -57,7 +80,8 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permission = Permission::find($id);  
+        return view('admin.permissions.edit', compact('permission')); 
     }
 
     /**
@@ -69,7 +93,29 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|unique:permissions,name,'.$id
+        ]); 
+
+        $permission = Permission::find($id);
+        $permission->name = $request->name;
+        $save = $permission->save();
+
+        if($save) { 
+            $notification = array(
+                'message' => 'Permission has been updated successfully.', 
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('permission.index')->with($notification); 
+        } else {
+            $notification = array(
+                'message' => 'Opps! something went wrong.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification); 
+        }
     }
 
     /**
@@ -78,8 +124,26 @@ class PermissionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id) 
     {
-        //
+        $permission = Permission::find($id);
+        $delete = $permission->delete(); 
+        // permission assaign for user also delete  
+
+        if($delete) {
+            $notification = array(
+                'message' => 'Permission had been deleted successfully.',
+                'alert-type' => 'success'
+            );
+
+            return redirect()->route('permission.index')->with($notification); 
+        } else { 
+            $notification = array(
+                'message' => 'Opps! something went wrong.',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);     
+        }
     }
 }

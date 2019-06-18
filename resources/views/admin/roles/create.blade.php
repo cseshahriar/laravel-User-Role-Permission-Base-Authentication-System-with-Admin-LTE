@@ -42,7 +42,7 @@
                     
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success" style="margin-top:10px">Add New Role</button>
+                                <button type="submit" class="btn btn-primary" style="margin-top:10px">Add New Role</button> 
                             </div>
                         </div>  
                     </form>   

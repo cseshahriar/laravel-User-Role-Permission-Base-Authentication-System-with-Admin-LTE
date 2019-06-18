@@ -6,11 +6,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Roles
-        <small>Update Roles</small>
+        Permission
+        <small>Update Permission</small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="{{ route('roles.index') }}"><i class="fa fa-users"></i> Roles</a></li>
+      <li><a href="{{ route('permission.index') }}"><i class="fa fa-users"></i> Permissions</a></li>
         <li class="active">Update</li> 
       </ol>
     </section>
@@ -25,28 +25,29 @@
         <!-- /.col -->
         <div class="col-md-10 col-sm-offset-1">
             <div class="panel panel-primary">
-                <div class="panel-heading bg-primary">Updat Role</div> 
+                <div class="panel-heading bg-primary">Update Permission</div> 
                 <div class="panel-body">
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
-                    <form action="{{ route('roles.update', $role->id) }}" method="post">
+                    <form action="{{ route('permission.update', $permission->id) }}" method="post">
                         
-                        @csrf 
-                        @method('PUT')
-                    
+                      @csrf 
+                      @method('PUT')
+                  
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <label for="name">Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $role->name }}">
+                                <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $permission->name }}">
+                                <p class="text-warning">Examples: user read, user create | user update | user delete </p>
                             </div>  
                         </div> 
-                    
+                     
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success" style="margin-top:10px">Update Role</button>
+                                <button type="submit" class="btn btn-primary" style="margin-top:10px">Update Permission</button>
                             </div> 
-                        </div>  
+                        </div>   
                     </form>   
                   </div>
             </div>
@@ -59,4 +60,4 @@
 <!-- /.content-wrapper -->
 @endsection 
 
-@section('title', 'Role Update')  
+@section('title', 'Permission Update')   

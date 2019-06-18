@@ -49,7 +49,7 @@
       <ul class="treeview-menu">
       <!-- <li>
         <a href="{{ route('roles.index') }}">User Roles</a>
-      </li> --> 
+      </li> -->   
       <li>
         <a href="{{ route('roles.roleuser') }}">Manage User Roles</a></li>     
       </ul> 
@@ -64,8 +64,14 @@
           </span> 
         </a>
         <ul class="treeview-menu"> 
-        <li>
-          <a href="">Manage Role Permissions</a></li>     
+          {{-- removable --}}
+            <li>
+            <a href="{{ route('permission.index') }}">Manage Permissions</a>  
+            </li>       
+
+            <li>
+              <a href="">Manage Role Permissions</a>
+            </li>     
         </ul> 
       </li>
 
