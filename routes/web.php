@@ -18,11 +18,11 @@ Auth::routes(['verify' => true]);
 /**
  * Authenticated routes for admin panel 
  */
-Route::group(['middleware' => ['auth', 'verified']], function() {
+Route::group(['middleware' => ['auth', 'verified']], function() {  
 
     /**
      * User custom auth routes
-     */
+     */ 
     Route::get('/user', 'UsersController@user')->name('user');  
     
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
@@ -57,9 +57,13 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
      * Permission Routes
      */
     Route::resource('permission', 'PermissionsController');            
-});
+});     
 
 /**
  * User home route
  */
 Route::get('/home', 'HomeController@index')->name('home');   
+
+/** Social Login */
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback'); 
