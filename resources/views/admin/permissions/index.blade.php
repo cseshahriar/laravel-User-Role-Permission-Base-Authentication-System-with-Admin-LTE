@@ -44,7 +44,7 @@
                     @foreach($permissions as $permission) 
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ ucwords($permission->name) }}</td> 
+                      <td>{{ ucwords($permission->name) }}</td>  
                       <td>
                           <div class="button-group">
 

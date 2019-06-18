@@ -37,7 +37,7 @@
                             <div class="col-sm-offset-2 col-sm-10">
                                 <label for="name">Name</label>
                                 <input type="text" name="name" class="form-control" placeholder="Name" value="{{ old('name') }}">
-                                <p class="text-warning">Examples: user read, user create | user update | user delete </p>
+                                <p class="text-warning">Examples: user-read, user-create | user-update | user-delete </p>
                             </div>  
                         </div> 
                      

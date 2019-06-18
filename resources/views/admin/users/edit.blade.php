@@ -31,7 +31,7 @@
                     <!-- errors -->
                     @include('admin.partials.errors')  
 
-                    @can('superadmin')
+                    @can('superadmin')  
                     <form class="form-horizontal" action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                         
                         @csrf 

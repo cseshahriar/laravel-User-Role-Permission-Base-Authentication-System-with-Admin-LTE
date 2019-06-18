@@ -14,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Model' => 'App\Policies\ModelPolicy',
+        // 'App\Model' => 'App\Policies\ModelPolicy', 
     ];
 
     /**
@@ -25,20 +25,6 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-         // check superadmin  
-         Gate::define('superadmin', function () {   
-
-            $userRoles = Auth::user()->roles->pluck('name'); 
-
-            if($userRoles->contains('superadmin')) { 
-                return true;
-            } else {
-                return false; 
-            }
-            
-        });
-
 
         // check admin  
         Gate::define('admin', function () {
@@ -52,5 +38,9 @@ class AuthServiceProvider extends ServiceProvider
             }
             
         });
+
+        /**
+         * Gates for user crud  
+         */
     }
 }

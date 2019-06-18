@@ -62,4 +62,4 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 /**
  * User home route
  */
-Route::get('/home', 'HomeController@index')->name('home'); 
+Route::get('/home', 'HomeController@index')->name('home');   
