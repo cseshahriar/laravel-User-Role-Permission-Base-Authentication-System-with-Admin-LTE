@@ -25,8 +25,10 @@
                 <div class="box-header">
                   <h3 class="box-title" style="display:block">Manage Users
                       <span class="pull-right" style="display:inline-block">
-                      <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}"> <i class="fa fa-plus"></i> Add New</a>
-                      </span> 
+                        @can('user-write')
+                        <a class="btn btn-primary btn-sm" href="{{ route('users.create') }}"> <i class="fa fa-plus"></i> Add New</a>
+                        @endcan  
+                      </span>   
                   </h3>
                 </div>
                 <!-- /.box-header -->
@@ -46,6 +48,7 @@
                     </thead>
 
                     <tbody>
+                    @can('user-read')
                     @foreach($users as $user)
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
@@ -62,12 +65,18 @@
                       </td> 
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
-                          @can('superadmin')
+                        
                           <div class="button-group">
+
+                            @can('user-read') 
                             <a href="{{ route('users.show', $user->id) }}"><i class="fa fa-eye text-success" style="display:inline-block;margin-right:10px"></i></a>
+                            @endcan
 
-                          <a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
+                            @can('user-edit') 
+                            <a href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
+                            @endcan
 
+                            @can('user-delete')
                             <form id="delete-form" action="{{ route('users.destroy', $user->id) }}" method="post" style="display: inline;border:0">  
                               
                                 @csrf   
@@ -75,15 +84,22 @@
       
                                 <button class="text-danger delete" type="submit" style="border:0;background:none">	  
                                   <i class="fa fa-trash"></i>     
-                                </button>     
-                              </form> 
+                                </button>      
+                            </form>
+                            @endcan 
                           </div>   
-                          @else 
-                            <span class="text-danger">You have't permission</span>  
-                          @endcan
+                          
                       </td> 
                     </tr>
                     @endforeach
+                    @else 
+                    <tr>
+                      <td colspan="8">
+                          <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
+                      </td>
+                    </tr>
+                   
+                    @endcan
                    </tbody>
                   
                     <tfoot>

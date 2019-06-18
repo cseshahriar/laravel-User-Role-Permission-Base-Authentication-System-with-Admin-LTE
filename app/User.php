@@ -38,8 +38,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Every user has many roles 
+     *
+     * @return void
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class); 
+    }
+
+    /**
+     * Every user has many permissions
+     *
+     * @return void
+     */
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);  
     }
 }

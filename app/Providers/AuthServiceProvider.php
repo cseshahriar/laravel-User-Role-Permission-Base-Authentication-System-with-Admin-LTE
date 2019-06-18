@@ -42,5 +42,52 @@ class AuthServiceProvider extends ServiceProvider
         /**
          * Gates for user crud  
          */
+        Gate::define('user-read', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('user-read')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('user-write', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('user-write')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('user-edit', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('user-edit')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('user-delete', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('user-delete')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        }); 
     }
 }

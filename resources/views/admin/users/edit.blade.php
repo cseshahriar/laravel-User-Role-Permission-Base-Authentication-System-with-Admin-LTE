@@ -31,7 +31,7 @@
                     <!-- errors -->
                     @include('admin.partials.errors')  
 
-                    @can('superadmin')  
+                    @can('user-edit')  
                     <form class="form-horizontal" action="{{ route('users.update', $user->id) }}" method="post" enctype="multipart/form-data">
                         
                         @csrf 
@@ -155,10 +155,10 @@
                         </div>  
                     </form>   
                     @else 
-                    <p class="alert alert-danger">Opps! You have no permission for this action!</p>
-                    @endcan 
+                    <h3 class="alert alert-danger">Opps! You have no permission for this action!</h3> 
+                    @endcan    
 
-                  </div>
+                  </div>  
             </div>
         </div>
         <!-- /.col -->

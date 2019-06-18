@@ -31,7 +31,8 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
-                
+                    
+                    @can('user-write')
                     <form class="form-horizontal" action="{{ route('users.store') }}" method="post">
                         @csrf 
                     
@@ -153,6 +154,9 @@
                             </div> 
                         </div>  
                     </form>  
+                    @else   
+                        <h3 class="text-danger">Opps! You have no permission for this action!</h3>  
+                    @endcan
                 
                   </div>
             </div>
