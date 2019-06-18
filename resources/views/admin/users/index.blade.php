@@ -42,6 +42,7 @@
                       <th>Mobile</th>
                       <th>Designation</th>
                       <th>Types</th> 
+                      <th>Permissions</th> 
                       <th>Images</th>  
                       <th>Actions</th>
                     </tr>
@@ -63,6 +64,13 @@
                           @endforeach
                       </ul> 
                       </td> 
+                      <td>
+                          <ul style="list-stule:disc;">
+                            @foreach($user->permissions as $permission)
+                            <li>{{ $permission->name }}</li>       
+                            @endforeach
+                         </ul> 
+                        </td>  
                       <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
                       <td>
                         
@@ -110,6 +118,7 @@
                             <th>Mobile</th>
                             <th>Designation</th>
                             <th>Types</th> 
+                            <th>Permissions</th>     
                             <th>Images</th>  
                             <th>Actions</th>
                         </tr> 
@@ -130,7 +139,8 @@
 
 @section('scripts') 
 <script> 
-	$(document).on('click', '.delete', function(e) { 
+
+	$(document).on('click', '.delete', function(e) {  
           
           var form = $(this).parents('form:first'); 
 

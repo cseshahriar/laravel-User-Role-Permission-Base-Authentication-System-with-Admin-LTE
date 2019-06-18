@@ -56,7 +56,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     /**
      * Permission Routes
      */
-    Route::resource('permission', 'PermissionsController');    
+    Route::resource('permission', 'PermissionsController');            
 });
 
 /**

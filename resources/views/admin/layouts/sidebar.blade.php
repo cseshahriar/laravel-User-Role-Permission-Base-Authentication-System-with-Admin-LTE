@@ -68,10 +68,6 @@
             <li>
             <a href="{{ route('permission.index') }}">Manage Permissions</a>  
             </li>       
-
-            <li>
-              <a href="">Manage Role Permissions</a>
-            </li>     
         </ul> 
       </li>
 

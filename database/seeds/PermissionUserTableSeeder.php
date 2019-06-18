@@ -33,12 +33,11 @@ class PermissionUserTableSeeder extends Seeder
 
         DB::table('permission_user')->insert([
             'user_id' => '2',
-            'permission_id' => '3',
+            'permission_id' => '1',
         ]);
-
-        DB::table('permission_user')->insert([ 
-            'user_id' => '3',
-            'permission_id' => '4',   
+        DB::table('permission_user')->insert([
+            'user_id' => '2',
+            'permission_id' => '2',  
         ]);
     }
 }

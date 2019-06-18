@@ -32,23 +32,23 @@
                     <form class="form-horizontal">
                     
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Name <span class="text-danger">*</span></label>
+                            <label for="name" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" value="{{ $user->name }}" disabled> 
                             </div>  
                         </div> 
 
                         <div class="form-group"> 
-                            <label for="email" class="col-sm-2 control-label">Email <span class="text-danger">*</span></label>
+                            <label for="email" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
                                 <input type="email" class="form-control"  value="{{ $user->email }}" disabled>
                             </div>
                         </div>  
 
                         <!-- checkbox -->
-                        <div class="form-group" style="margin-top:10px">
-                            <label for="role_id" class="col-sm-2 control-label">User Roles <span class="text-danger">*</span></label>
-                            <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">  
+                        <div class="form-group">  
+                            <label class="col-sm-2 control-label">User Roles</label>
+                            <div class="col-sm-10">  
 
                                 @php 
                                     $userRoles = DB::table('role_user')->where('user_id', '=', $user->id)->get();
@@ -59,14 +59,23 @@
                                     }
                                 @endphp
 
+                                <ul style="list-stule:disc;">
                                 @foreach($roles as $role)
-                                    <label>
-                                        @if($role->name != 'user')
-                                            <input type="checkbox" name="role_id[]" class="minimal" value="{{ $role->id }}" @if(in_array($role->id, $userRolesArray) == $role->id) {{ 'checked' }} @endif> 
-                                            <span style="display:inline-block;margin-right:15px">{{ ucfirst($role->name) }}</span>  
-                                        @endif 
-                                    </label>    
-                                @endforeach    
+                                    <li>{{ $role->name }}</li>         
+                                @endforeach   
+                               </ul>    
+                            </div>
+                        </div>
+
+                    
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">User Permissions</label>
+                            <div class="col-sm-10">
+                                <ul style="list-stule:disc;">
+                                    @foreach($user->permissions as $permission)
+                                    <li>{{ $permission->name }}</li>        
+                                    @endforeach
+                                </ul> 
                             </div>
                         </div>
 
@@ -95,7 +104,7 @@
                         </div>
     
                         <div class="form-group">
-                            <label for="mobile" class="col-sm-2 control-label">Mobile Number <span class="text-danger">*</span></label>
+                            <label for="mobile" class="col-sm-2 control-label">Mobile Number</label>
           
                             <div class="col-sm-10">
                             <input type="number" class="form-control" id="mobile" value="{{ $user->mobile }}" disabled> 

@@ -51,7 +51,7 @@
                             </div>
                         </div>  
 
-                        <!-- checkbox -->
+                        <!-- user roels  -->
                         <div class="form-group" style="margin-top:10px">
                             <label for="role_id" class="col-sm-2 control-label">User Roles <span class="text-danger">*</span></label>
                             <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">  
@@ -75,6 +75,29 @@
                                 @endforeach    
                             </div>
                         </div>
+
+                             <!-- checkbox -->
+                             <div class="form-group" style="margin-top:10px">
+                                    <label for="role_id" class="col-sm-2 control-label">User Permissions <span class="text-danger">*</span></label>
+                                    <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">  
+                                       
+                                        @php 
+                                            $userPermissions = DB::table('permission_user')->where('user_id', '=', $user->id)->get();
+                                            $userPermissionsArray = array();
+        
+                                            foreach ($userPermissions as $userPermission) {
+                                                array_push($userPermissionsArray, $userPermission->permission_id); 
+                                            }
+                                        @endphp 
+        
+                                        @foreach($permissions as $permission)
+                                            <label>
+                                                <input type="checkbox" name="permission_id[]" class="minimal" value="{{ $permission->id }}" @if(in_array($permission->id, $userPermissionsArray) == $permission->id) {{ 'checked' }} @endif> 
+                                                <span style="display:inline-block;margin-right:15px">{{ ucfirst($permission->name) }}</span>  
+                                            </label>    
+                                        @endforeach        
+                                    </div>
+                                </div>
 
 
                         <div class="form-group">

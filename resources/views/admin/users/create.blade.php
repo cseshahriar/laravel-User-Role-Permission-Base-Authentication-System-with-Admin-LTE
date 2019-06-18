@@ -65,19 +65,32 @@
                             </div>
                         </div>
 
-                        <!-- checkbox -->
+                        <!-- roles -->
                         <div class="form-group" style="margin-top:10px">
                             <label for="role_id" class="col-sm-2 control-label">User Roles <span class="text-danger">*</span></label>
                             <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">  
                                 @foreach($roles as $role)
                                     <label>
                                         @if($role->name != 'user')
-                                        <input type="checkbox" name="role_id[]" class="minimal" value="{{ $role->id }}"> <span style="display:inline-block;margin-right:15px">{{ ucfirst($role->name) }}</span>
+                                        <input type="checkbox" name="role_id[]" class="minimal" value="{{ $role->id }}" {{ $role->name == 'admin' ? 'checked' : ''}}> <span style="display:inline-block;margin-right:15px">{{ ucfirst($role->name) }}</span>
                                         @endif
                                     </label>    
-                                @endforeach 
+                                @endforeach  
                             </div>
                         </div>
+
+
+                        <!-- roles -->
+                        <div class="form-group" style="margin-top:10px">
+                                <label for="role_id" class="col-sm-2 control-label">Permissions for User <span class="text-danger">*</span></label>
+                                <div class="col-sm-offset-2 col-sm-10" style="margin-top:10px">  
+                                    @foreach($permissions as $permission)
+                                        <label>
+                                            <input type="checkbox" name="permission_id[]" class="minimal" value="{{ $permission->id }}"> <span style="display:inline-block;margin-right:15px">{{ ucfirst($permission->name) }}</span> 
+                                        </label>     
+                                    @endforeach   
+                                </div>
+                            </div>
 
 
                         <div class="form-group">

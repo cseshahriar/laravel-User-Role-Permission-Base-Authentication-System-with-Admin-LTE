@@ -7,7 +7,8 @@ use Auth;
 use Image; 
 use App\Role; 
 use App\User; 
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
+use App\Permission;
 
 class UsersController extends Controller 
 {
@@ -113,14 +114,15 @@ class UsersController extends Controller
     */
     public function index()
     {
-        $users = User::all(); 
-        return view('admin.users.index', compact('users'));
+        $users = User::all();    
+        return view('admin.users.index', compact('users'));  
     } 
 
     public function create()
     {
+        $permissions = Permission::all(); 
         $roles = Role::all(); 
-        return view('admin.users.create', compact('roles'));      
+        return view('admin.users.create', compact('roles', 'permissions'));      
     }
 
     public function store(Request $request)
@@ -138,7 +140,8 @@ class UsersController extends Controller
             'phone' => 'nullable|numeric|unique:users', 
             'address' => 'nullable|string',
             'bio' => 'nullable|string', 
-            'role_id' => 'required|array'
+            'role_id' => 'required|array',
+            'permission_id' => 'nullable|array', 
         ]); 
 
         $User = new User;  
@@ -176,8 +179,18 @@ class UsersController extends Controller
                    'user_id' => $User->id
                ];  
             }  
-
             $save = DB::table('role_user')->insert($roleAssigns); 
+
+            // save permissions for this user
+            $permissionAssigns = [];
+            foreach($request->permission_id as $permission){
+                $permissionAssigns[] = [
+                'user_id' => $User->id,
+                    'permission_id' => $permission 
+                
+                ];  
+            }  
+            $save = DB::table('permission_user')->insert($permissionAssigns);       
 
             $notification = array(
                 'message' => 'Your profile has been updated successfully.',
@@ -206,8 +219,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $roles = Role::all(); 
-        $user = User::find($id);
-        return view('admin.users.edit', compact('roles', 'user'));  
+        $permissions = Permission::all(); 
+        $user = User::find($id); 
+        return view('admin.users.edit', compact('roles', 'user', 'permissions'));     
     }
     
     public function update(Request $request, $id)
@@ -223,7 +237,8 @@ class UsersController extends Controller
             'phone' => 'nullable|numeric|unique:users,phone,'.$id, 
             'address' => 'nullable|string',
             'bio' => 'nullable|string', 
-            'role_id' => 'required|array'   
+            'role_id' => 'required|array',
+            'permission_id' => 'nullable|array',   
         ]); 
 
         $User = User::find($id);   
@@ -261,6 +276,12 @@ class UsersController extends Controller
                 } 
             } 
 
+            // delete permissions for this user
+            $userPermissions = DB::table('permission_user')->where('user_id', '=', $id)->get();    
+            foreach($userPermissions as $userPermission) { 
+                DB::table('permission_user')->where('id', '=', $userPermission->id)->delete();   
+            } 
+ 
             // store new roles 
             $roleAssigns = [];
             foreach($request->role_id as $role) {
@@ -270,7 +291,21 @@ class UsersController extends Controller
                 ]; 
             }
      
-            $save = DB::table('role_user')->insert($roleAssigns);     
+            $save = DB::table('role_user')->insert($roleAssigns);      
+
+            /* store new permissions */
+            if(!is_null($request->permission_id)) {
+                $rolePermissions = [];
+                foreach($request->permission_id as $permission) { 
+                    $rolePermissions[] = [
+                        'permission_id' => $permission,
+                        'user_id' => $id  
+                    ]; 
+                }
+
+                $save = DB::table('permission_user')->insert($rolePermissions);     
+            }
+                
 
             $notification = array(
                 'message' => 'Your has been updated successfully.',
