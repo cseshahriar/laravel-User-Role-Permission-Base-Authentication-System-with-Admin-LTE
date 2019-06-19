@@ -28,9 +28,14 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
 
     Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
- 
+    
+    /** Admin Profile Routes */
     Route::get('/admin/profile', 'UsersController@adminProfile')->name('admin.profile');    
     Route::post('/admin/profile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
+
+    /** User Profile Routes */
+    Route::get('/user/profile', 'UsersController@userProfile')->name('user.profile');     
+    Route::post('/user/profile/update', 'UsersController@userProfileUpdate')->name('user.profile.update');      
 
     /**
      * User CRUD Routes 

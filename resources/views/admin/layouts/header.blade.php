@@ -16,7 +16,7 @@
   <!-- AdminLTE Skins. -->
   <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/skin-blue.min.css') }}">  
   {{-- toastr --}}
-  <link rel="stylesheet" href="{{ asset('admin/css/toastr.min.css') }}"> 
+  <link rel="stylesheet" href="{{ asset('admin/css/toastr.min.css') }}">  
    <!-- DataTables -->
   <link rel="stylesheet" href="{{ asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
   <!-- iCheck for checkboxes and radio inputs -->
