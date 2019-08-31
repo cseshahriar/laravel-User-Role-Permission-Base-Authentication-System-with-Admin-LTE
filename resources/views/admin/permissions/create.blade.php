@@ -30,6 +30,7 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
+                    @can('admin')
                     <form action="{{ route('permission.store') }}" method="post">
                         @csrf 
                   
@@ -47,6 +48,13 @@
                             </div> 
                         </div>   
                     </form>   
+                    @else 
+                    <tr>
+                      <td colspan="8">
+                          <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
+                      </td>
+                    </tr>
+                    @endcan
                   </div>
             </div>
         </div>

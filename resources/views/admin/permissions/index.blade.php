@@ -41,6 +41,7 @@
                     </thead>
 
                     <tbody>
+                    @can('admin')
                     @foreach($permissions as $permission) 
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
@@ -75,6 +76,14 @@
                     </tfoot>
                   </table>
                 </div>
+                @else 
+                    <tr>
+                      <td colspan="8">
+                          <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
+                      </td>
+                    </tr>
+                   
+                @endcan
                 <!-- /.box-body -->
               </div>
               <!-- /.box -->

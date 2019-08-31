@@ -69,22 +69,9 @@
             <a href="{{ route('permission.index') }}">Manage Permissions</a>  
             </li>       
         </ul> 
-      </li>
+    </li>
 
     <li class="header">Reports</li>  
-
-    <li>
-        <a href="{{ route('logout') }}"
-        onclick="event.preventDefault();
-        document.getElementById('logout-form').submit();">
-          <i class="fa fa-sign-out text-danger"></i> 
-          <span>{{ __('Sign out') }}</span>
-        </a>
-  
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
-    </li> 
   </ul>
   <!-- /.sidebar-menu --> 
 </section>

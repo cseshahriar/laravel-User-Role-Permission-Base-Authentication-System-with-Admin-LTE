@@ -30,6 +30,7 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
+                    @can('admin')
                     <form action="{{ route('permission.update', $permission->id) }}" method="post">
                         
                       @csrf 
@@ -48,7 +49,14 @@
                                 <button type="submit" class="btn btn-primary" style="margin-top:10px">Update Permission</button>
                             </div> 
                         </div>   
-                    </form>   
+                    </form>  
+                     @else 
+                    <tr>
+                      <td colspan="8">
+                          <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
+                      </td>
+                    </tr>
+                   @endcan 
                   </div>
             </div>
         </div>
