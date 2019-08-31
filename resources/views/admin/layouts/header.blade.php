@@ -35,26 +35,7 @@
   @yield('styles')
 
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -211,9 +192,21 @@ desired effect
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
+
                 <div class="pull-left">
                   <a href="{{ route('admin.profile') }}" class="btn btn-default btn-flat">Profile</a>
                 </div>
+
+                @php 
+                $userRoles = Auth::user()->roles->pluck('name'); 
+                @endphp
+
+                @if($userRoles->contains('user'))
+                <div class="pull-left">
+                  <a href="{{ url('/home') }}" class="btn btn-default btn-flat">Home</a>
+                </div> 
+                @endif 
+
                 <div class="pull-right">
                   <a class="btn btn-default btn-flat" href="{{ route('logout') }}"
                       onclick="event.preventDefault();

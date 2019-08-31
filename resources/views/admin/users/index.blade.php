@@ -49,7 +49,7 @@
                     </thead>
 
                     <tbody>
-                    @can('user-read')
+                    @can('user-read') 
                     @foreach($users as $user)
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
