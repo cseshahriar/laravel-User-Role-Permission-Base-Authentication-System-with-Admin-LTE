@@ -18,6 +18,8 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- toastr --}}
+    <link rel="stylesheet" href="{{ asset('css/toastr.min.css') }}">    
 </head>
 <body>
     <div id="app">
@@ -60,16 +62,32 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 20rem;">
+                                    
+                                    <a href="" class="dropdown-item text-center">
+                                        <div class="profile-header bg-primary pt-3 pb-2">
+                                            <img src="{{ asset(Auth::user()->image) }}" alt="" style="width:50%;border-radius:60%;display:block;margin:auto;">
+                                            <p style="color:#fff;margin-top:15px">{{ Auth::user()->name }}</p>
+                                            <p style="color:#fff">Member since {{ Carbon\Carbon::parse(Auth::user()->created_at)->format('M, Y') }}</p>
+                                        </div>
+                                    
                                     </a>
+                                   
+                                    <hr>
+                                    <div class="button-group text-center">
+                                    <a href="{{ route('user.profile') }}" class="btn btn-primary dropdown-item float-left" style="display:inline-block;width:60px;margin-left:15px">Profiles</a>    
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+                                            <a class="dropdown-item btn btn-default" href="{{ route('logout') }}"
+                                               onclick="event.preventDefault();
+                                                             document.getElementById('logout-form').submit();" style="display:inline-block;width:60px">
+                                                {{ __('Logout') }} 
+                                            </a>
+        
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                @csrf
+                                            </form>
+                                    </div>
+                                    
                                 </div>
                             </li>
 
@@ -83,5 +101,32 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset('js/jquery-3.4.1.min.js') }}"></script>      
+    <script src="{{ asset('js/toastr.min.js') }}"></script>   
+    <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>     
+
+<script>  
+        @if(Session::has('message')) 
+            var type = "{{ Session::get('alert-type', 'info') }}"; 
+            switch (type) {
+                case 'info' :
+                    toastr.info("{{ Session::get('message') }}");
+                    break; 
+                case 'success' :
+                    toastr.success("{{ Session::get('message') }}");
+                    break; 
+                case 'warning' :
+                    toastr.warning("{{ Session::get('message') }}");
+                    break; 
+                case 'error' :
+                    toastr.error("{{ Session::get('message') }}");
+                    break;  
+            }
+        @endif
+    </script>  
+
+    @yield('extjs')  
+
 </body>
 </html>
