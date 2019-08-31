@@ -10,8 +10,11 @@
         <small>Manage Permissions</small>
       </h1>
       <ol class="breadcrumb">
+      @can('permission-write')
       <li><a href="{{ route('permission.index') }}"><i class="fa fa-users"></i>Permissions</a></li>
-        <li class="active">Manage Permissions</li>  
+      @endcan
+
+      <li class="active">Manage Permissions</li>  
       </ol>
     </section>
 
@@ -41,16 +44,18 @@
                     </thead>
 
                     <tbody>
-                    @can('admin')
+                    @can('permission-read')
                     @foreach($permissions as $permission) 
                     <tr>
                       <td>{{ $loop->index + 1 }}</td>
                       <td>{{ ucwords($permission->name) }}</td>  
                       <td>
                           <div class="button-group">
-
+                            @can('permission-edit')
                             <a href="{{ route('permission.edit', $permission->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
-
+                            @endcan
+                            
+                            @can('permission-delete')
                             <form id="delete-form" action="{{ route('permission.destroy', $permission->id) }}" method="post" style="display: inline;border:0">  
                               
                               @csrf   
@@ -60,6 +65,7 @@
                                 <i class="fa fa-trash"></i>    
                               </button>     
                             </form> 
+                            @endcan
 
                           </div>    
                       </td>

@@ -30,7 +30,7 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
-                    @can('admin')
+                    @can('permission-edit')
                     <form action="{{ route('permission.update', $permission->id) }}" method="post">
                         
                       @csrf 

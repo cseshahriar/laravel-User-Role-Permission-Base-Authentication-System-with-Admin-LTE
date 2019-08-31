@@ -30,7 +30,7 @@
                       
                     <!-- errors -->
                     @include('admin.partials.errors') 
-                    @can('admin')
+                    @can('permission-write') 
                     <form action="{{ route('permission.store') }}" method="post">
                         @csrf 
                   
