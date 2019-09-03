@@ -33,7 +33,7 @@
     <li class="{{ (request()->is('users*')) ? 'active' : '' }}">  
       <a href="{{ route('users.index') }}"> 
         <i class="fa fa-users"></i> 
-        <span>Manage Users</span>    
+        <span>Manage Users</span>     
       </a>
     </li> 
 
@@ -61,7 +61,7 @@
           </span> 
         </a>
         <ul class="treeview-menu">   
-            <li><a href="{{ route('permission.index') }}">Permissions</a></li>     
+            <li><a href="{{ route('permission.index') }}">All Permissions</a></li>     
         </ul> 
     </li>
 
@@ -75,8 +75,26 @@
         </a>
         <ul class="treeview-menu"> 
             <li>
-            <a href="{{ route('category.index') }}">Categories</a>  
+            <a href="{{ route('category.index') }}">All Categories</a>  
             </li>       
+        </ul> 
+    </li> 
+   
+    <li class="treeview">  
+        <a href="#">
+          <i class="fa fa-cog"></i> 
+          <span>Settings</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span> 
+        </a>
+        <ul class="treeview-menu"> 
+            <li><a href="#">Application Information</a></li>       
+            <li><a href="#">Social Profiles</a></li>       
+            <li><a href="#">Privacy & Policies</a></li>       
+            <li><a href="#">Terms & Conditions</a></li>       
+            <li><a href="#">Mission and Vision</a></li>       
+            <li><a href="#">Meta Tags</a></li>         
         </ul> 
     </li> 
 
