@@ -88,7 +88,7 @@ class AuthServiceProvider extends ServiceProvider
             
         }); 
 
-              /**
+        /**
          * Gates for permissions crud  
          */
         Gate::define('permission-read', function () { 
@@ -137,5 +137,58 @@ class AuthServiceProvider extends ServiceProvider
                 return false;  
             }
         }); 
+
+
+        /**
+         * Gates for category crud  
+         */
+        Gate::define('category-read', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('category-read')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('category-write', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('category-write')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('category-edit', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('category-edit')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('category-delete', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('category-delete')) {   
+                return true;
+            } else {
+                return false;  
+            }
+        }); 
+
+
     }
 }

@@ -25,17 +25,17 @@
     <!-- Optionally, you can add icons to the links -->
     
     <li>
-      <a href="#"><i class="fa fa-tachometer"></i> 
-        <span>Dashboard</span>
+      <a href="{{ route('dashboard') }}"><i class="fa fa-tachometer"></i> 
+        <span>Dashboard</span>  
       </a>
     </li>
  
     <li class="{{ (request()->is('users*')) ? 'active' : '' }}">  
       <a href="{{ route('users.index') }}"> 
         <i class="fa fa-users"></i> 
-        <span>Manage Users</span>   
+        <span>Manage Users</span>    
       </a>
-    </li>
+    </li> 
 
 
     <li class="treeview {{ (request()->is('roles*')) ? 'active' : '' }}"> 
@@ -47,15 +47,12 @@
         </span> 
       </a>
       <ul class="treeview-menu">
-      <!-- <li>
-        <a href="{{ route('roles.index') }}">User Roles</a>
-      </li> -->   
-      <li>
-        <a href="{{ route('roles.roleuser') }}">Manage User Roles</a></li>     
+      <!-- <li><a href="{{ route('roles.index') }}">User Roles</a></li> -->
+      <li><a href="{{ route('roles.roleuser') }}">Manage User Roles</a></li>   
       </ul> 
     </li>
 
-    <li class="treeview"> 
+    <li class="treeview">  
         <a href="#">
           <i class="fa fa-lock"></i> 
           <span>Manage Permissions</span>
@@ -63,13 +60,25 @@
               <i class="fa fa-angle-left pull-right"></i>
           </span> 
         </a>
-        <ul class="treeview-menu"> 
-          {{-- removable --}}
-            <li>
-            <a href="{{ route('permission.index') }}">Manage Permissions</a>  
-            </li>       
+        <ul class="treeview-menu">   
+            <li><a href="{{ route('permission.index') }}">Permissions</a></li>     
         </ul> 
     </li>
+
+    <li class="treeview"> 
+        <a href="#">
+          <i class="fa fa-list"></i> 
+          <span>Manage Cagegories</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span> 
+        </a>
+        <ul class="treeview-menu"> 
+            <li>
+            <a href="{{ route('category.index') }}">Categories</a>  
+            </li>       
+        </ul> 
+    </li> 
 
     <li class="header">Reports</li>  
   </ul>

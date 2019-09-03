@@ -44,24 +44,22 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::resource('users', 'UsersController');    
 
 
-    /**
-     * Roles Routes
-     */
+    /* Roles Routes */
     Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    
     
     Route::get('/roles/roleusercreate', 'RolesController@roleusercreate')->name('roles.roleusercreate');  
     Route::post('/roles/roleuserstore', 'RolesController@roleuserstore')->name('roles.roleuserstore');  
 
-    /**
-     * Role CRUD Routes
-     */
+    /* Role CRUD Routes */
     Route::resource('roles', 'RolesController');   
        
     
-    /**
-     * Permission Routes
-     */
-    Route::resource('permission', 'PermissionsController');            
+    /* Permission Routes */
+    Route::resource('permission', 'PermissionsController');  
+
+    /* Category routes */          
+    Route::resource('category', 'CategoryController');   
+              
 });     
 
 /**

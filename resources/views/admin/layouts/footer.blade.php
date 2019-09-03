@@ -6,7 +6,7 @@
         <a href="http://codershahriar.com" target="_blank">Developed by Codershahriar</a>
     </div>
     <!-- Default to the left -->
-<strong>Copyright &copy; {{ date('Y') }} <a href="{{ url('/') }}">{{ config('app.name') }}</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; {{ date('Y') }} <a href="{{ url('/') }}">{{ config('app.name') }}</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed
@@ -28,6 +28,9 @@
 <!-- DataTables -->
 <script src="{{ asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+
+<script src="{{ asset('admin/bower_components/select2/dist/js/select2.min.js') }}"></script>  
+
 <!-- iCheck 1.0.1 -->
 <script src="{{ asset('admin/plugins/iCheck/icheck.min.js') }}"></script>
 
@@ -55,6 +58,8 @@
     @endif
 
     $(function () {
+        
+        $('.select2').select2();
 
         $('.datatable').DataTable(); 
 

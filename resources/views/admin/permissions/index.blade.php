@@ -71,6 +71,14 @@
                       </td>
                     </tr>
                     @endforeach
+
+                      @else 
+                        <tr>
+                          <td colspan="8">
+                              <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
+                          </td>
+                        </tr>
+                    @endcan
                    </tbody>
                   
                     <tfoot>
@@ -82,14 +90,6 @@
                     </tfoot>
                   </table>
                 </div>
-                @else 
-                    <tr>
-                      <td colspan="8">
-                          <h3 class="text-danger">Oops! You have no permission for this action!</h3> 
-                      </td>
-                    </tr>
-                   
-                @endcan
                 <!-- /.box-body -->
               </div>
               <!-- /.box -->
