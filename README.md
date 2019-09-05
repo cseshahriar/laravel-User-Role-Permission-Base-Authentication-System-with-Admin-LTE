@@ -1,6 +1,6 @@
 # laravel User Role Permission Base Authenticationn System with Admin LTE
 
-This is a startup laravel admin panel. I believe anybody can use it, who want to save some time.
+This is a startup laravel admin panel. I believe anybody can use it, who want to save time.
 
 Author
 Name : MD Shahriar Hosen 
@@ -35,6 +35,7 @@ php artisan db:seed
 Set .Env Mail configuration with Gmail
 
 Set social login configuration in .env file
+
 FACEBOOK_CLIENT_ID=
 FACEBOOK_CLIENT_SECRET=
 FACEBOOK_CLIENT_CALLBACK=

@@ -68,9 +68,10 @@
                         <div class="form-group row mb-0 mt-3"> 
                             <div class="col-md-8 offset-md-4">
                             <a href="{{ url('/auth/redirect/facebook') }}" class="btn btn-default"><i class="fa fa-facebook"></i> {{ __('Login with Facebook') }}</a>
-                            <a href="{{ url('/auth/redirect/google') }}" class="btn btn-default"><i class="fa fa-google"></i> {{ __('Login with Google') }}</a>
+
+                            <a href="{{ url('/auth/redirect/google') }}" class="btn btn-default"><i class="fa fa-google"></i> {{ __('Login with Google') }}</a>  
                             </div>  
-                        </div>
+                        </div>  
 
                     </form>
                 </div>
