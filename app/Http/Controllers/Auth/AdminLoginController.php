@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers; 
 
 
 class AdminLoginController extends Controller
@@ -68,9 +68,10 @@ class AdminLoginController extends Controller
 
         if($userRoles->contains('admin')) {  
             $this->redirectTo = '/dashboard';  
-        } else {
-             $this->redirectTo = '/home';    
-        }
+        } else { 
+            Auth::logout();
+            return redirect('login')->with(['message' => 'Oops! you dont have permission for this action.', 'alert-type' => 'error']);    
+        } 
     }
 
     /**
