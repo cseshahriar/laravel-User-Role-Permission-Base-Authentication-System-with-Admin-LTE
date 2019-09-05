@@ -28,13 +28,21 @@ php artisan key: generate
 
 Set your database credentials in your .env file
 
+php artisan migrate
+
+php artisan db:seed
+
 Set .Env Mail configuration with Gmail
 
 Set .Env Social Login configuration
 
-12 php artisan serve or use Laravel Valet or Laravel Homestead
+php artisan serve or use Laravel Valet or Laravel Homestead
 
 Visit localhost:8000 in your browser
 
-Visit /admin/login if you want to access the admin panel. Default Admin User/Password: admin@admin.com/shahriar.
+Visit for admin login /admin/login if you want to access the admin panel. Default Admin User/Password: admin@admin.com/shahriar.
+
+Visit user login /login if you want to access the admin panel. Default Admin User/Password: user@user.com/shahriar.
+
+{{ 'Happy Coding' }} 
 
