@@ -3,9 +3,9 @@
 This is a startup laravel admin panel. I believe anybody can use it, who want to save time.
 
 Author
-Name : MD Shahriar Hosen 
-Email : cse.shahriar.hosen@gmail.com 
-URL: http://codershahriar.com
+Name : MD Shahriar Hosen  <br>
+Email : cse.shahriar.hosen@gmail.com  <br> 
+URL: http://codershahriar.com <br>
 
 Version
 v1.0.0 beta
