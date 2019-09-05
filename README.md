@@ -34,7 +34,14 @@ php artisan db:seed
 
 Set .Env Mail configuration with Gmail
 
-Set .Env Social Login configuration
+Set social login configuration in .env file
+FACEBOOK_CLIENT_ID=
+FACEBOOK_CLIENT_SECRET=
+FACEBOOK_CLIENT_CALLBACK=
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_CLIENT_CALLBACK=
 
 php artisan serve or use Laravel Valet or Laravel Homestead
 
