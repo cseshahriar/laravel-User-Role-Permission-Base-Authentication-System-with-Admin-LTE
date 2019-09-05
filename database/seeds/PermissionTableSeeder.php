@@ -25,6 +25,44 @@ class PermissionTableSeeder extends Seeder
 
         DB::table('permissions')->insert([
             'name' => 'user-delete'
+        ]); 
+
+
+
+        DB::table('permissions')->insert([
+            'name' => 'permission-read'
         ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'permission-write'
+        ]); 
+
+        DB::table('permissions')->insert([
+            'name' => 'permission-edit'
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'permission-delete'
+        ]);   
+
+
+        DB::table('permissions')->insert([
+            'name' => 'category-read'
+        ]); 
+
+        DB::table('permissions')->insert([
+            'name' => 'category-write'
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'category-edit'
+        ]); 
+
+        DB::table('permissions')->insert([
+            'name' => 'category-delete'
+        ]); 
+
+
+
     }
 }

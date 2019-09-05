@@ -11,6 +11,7 @@ class PermissionUserTableSeeder extends Seeder
      */
     public function run()
     {
+        // admin 
         DB::table('permission_user')->insert([
             'user_id' => '1',
             'permission_id' => '1',
@@ -29,8 +30,49 @@ class PermissionUserTableSeeder extends Seeder
         DB::table('permission_user')->insert([
             'user_id' => '1',
             'permission_id' => '4',
+        ]);  
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '5',
         ]);
 
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '6',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '7',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '8',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '9',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '10',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '11',
+        ]);
+
+        DB::table('permission_user')->insert([
+            'user_id' => '1',
+            'permission_id' => '12',
+        ]);
+
+        // user
         DB::table('permission_user')->insert([
             'user_id' => '2',
             'permission_id' => '1',
