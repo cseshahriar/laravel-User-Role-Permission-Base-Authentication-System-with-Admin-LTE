@@ -67,10 +67,9 @@
 
                                 @foreach($roles as $role)
                                     <label>
-                                        @if($role->name != 'user')
-                                            <input type="checkbox" name="role_id[]" class="minimal" value="{{ $role->id }}" @if(in_array($role->id, $userRolesArray) == $role->id) {{ 'checked' }} @endif> 
-                                            <span style="display:inline-block;margin-right:15px">{{ ucfirst($role->name) }}</span>  
-                                        @endif 
+                                       
+                                        <input type="checkbox" name="role_id[]" class="minimal" value="{{ $role->id }}" @if(in_array($role->id, $userRolesArray) == $role->id) {{ 'checked' }} @endif> 
+                                        <span style="display:inline-block;margin-right:15px">{{ ucfirst($role->name) }}</span>   
                                     </label>    
                                 @endforeach    
                             </div>
@@ -173,13 +172,13 @@
                         
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">  
-                                <button type="submit" class="btn btn-success" style="margin-top:10px">Add New User</button>
+                                <button type="submit" class="btn btn-success" style="margin-top:10px">Update User</button>
                             </div> 
                         </div>  
                     </form>   
                     @else 
                     <h3 class="alert alert-danger">Opps! You have no permission for this action!</h3> 
-                    @endcan    
+                    @endcan     
 
                   </div>  
             </div>

@@ -36,33 +36,18 @@
         <span>Manage Users</span>     
       </a>
     </li> 
-
-
-    <li class="treeview {{ (request()->is('role.index')) ? 'active' : '' }}">  
-      <a href="#">
-        <i class="fa fa-shield"></i> 
-        <span>Manage Roles</span>
-        <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-        </span> 
+    
+    <li class="{{ (request()->is('permission.index')) ? 'active' : '' }}">
+      <a href="{{ route('permission.index') }}"><i class="fa fa-lock"></i> 
+        <span>Permissions</span>  
       </a>
-      <ul class="treeview-menu"> 
-      <li><a href="{{ route('role.index') }}">Role List</a></li>     
-      </ul> 
-    </li>
+    </li>    
 
-    <li class="treeview">  
-        <a href="#">
-          <i class="fa fa-lock"></i> 
-          <span>Manage Permissions</span>
-          <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-          </span> 
-        </a>
-        <ul class="treeview-menu">   
-            <li><a href="{{ route('permission.index') }}">All Permissions</a></li>     
-        </ul> 
-    </li>
+    <li class="{{ (request()->is('role.index')) ? 'active' : '' }}">
+      <a href="{{ route('role.index') }}"><i class="fa fa-shield"></i> 
+        <span>Roles</span>  
+      </a>
+    </li> 
 
     <li class="treeview"> 
         <a href="#">
