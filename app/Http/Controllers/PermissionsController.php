@@ -80,8 +80,10 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::find($id);  
-        return view('admin.permissions.edit', compact('permission')); 
+        // $permission = Permission::find($id);  
+        // return view('admin.permissions.edit', compact('permission')); 
+        
+        return redirect()->back()->with(['message' => 'Bad Action!', 'alert-type' => 'error']); 
     }
 
     /**
@@ -93,7 +95,9 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        return redirect()->back()->with(['message' => 'Bad Action!', 'alert-type' => 'error']); 
+
+        /* $request->validate([
             'name' => 'required|string|unique:permissions,name,'.$id
         ]); 
 
@@ -115,7 +119,7 @@ class PermissionsController extends Controller
             );
 
             return redirect()->back()->with($notification); 
-        }
+        } */
     }
 
     /**
@@ -126,7 +130,9 @@ class PermissionsController extends Controller
      */
     public function destroy($id) 
     {
-        $permission = Permission::find($id);
+        return redirect()->back()->with(['message' => 'Bad Action!', 'alert-type' => 'error']); 
+
+        /* $permission = Permission::find($id);
         $delete = $permission->delete(); 
         // permission assaign for user also delete  
 
@@ -144,6 +150,6 @@ class PermissionsController extends Controller
             );
 
             return redirect()->back()->with($notification);     
-        }
+        } */ 
     }
 }

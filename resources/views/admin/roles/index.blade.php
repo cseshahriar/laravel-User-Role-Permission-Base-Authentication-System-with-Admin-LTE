@@ -6,12 +6,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Roles
-        <small>Manage Roles</small>
+        Role
+        <small>List</small>
       </h1>
       <ol class="breadcrumb">
-      <li><a href="{{ route('roles.index') }}"><i class="fa fa-users"></i>Role</a></li>
-        <li class="active">Manage</li>  
+      <li><a href="{{ route('role.index') }}"><i class="fa fa-users"></i>Role</a></li>
+        <li class="active">List</li> 
       </ol>
     </section>
 
@@ -23,11 +23,7 @@
         -------------------------->
         <div class="box">
                 <div class="box-header">
-                  <h3 class="box-title" style="display:block">Manage Roles
-                      <span class="pull-right" style="display:inline-block">
-                      <a class="btn btn-primary btn-sm" href="{{ route('roles.create') }}"> <i class="fa fa-plus"></i> Add New</a>
-                      </span> 
-                  </h3>
+                  <h3 class="box-title" style="display:block">Role List</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -36,32 +32,14 @@
                     <tr>
                       <th>#</th>
                       <th>Name</th> 
-                      <th>Actions</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     @foreach($roles as $role)
                     <tr>
-                      <td>{{ $loop->index + 1 }}</td>
-                      <td>{{ ucfirst($role->name) }}</td> 
-                      <td>
-                          <div class="button-group">
-
-                            <a href="{{ route('roles.edit', $role->id) }}"><i class="fa fa-pencil-square text-info"></i></a>
-
-                            <form id="delete-form" action="{{ route('roles.destroy', $role->id) }}" method="post" style="display: inline;border:0">  
-                              
-                              @csrf   
-                              @method('DELETE')     
-    
-                              <button class="text-danger delete" type="submit" style="border:0;background:none">	  
-                                <i class="fa fa-trash"></i>    
-                              </button>     
-                            </form> 
-
-                          </div>    
-                      </td>
+                        <td>{{ $loop->index + 1 }}</td>
+                        <td>{{ ucfirst($role->name) }}</td> 
                     </tr>
                     @endforeach
                    </tbody>
@@ -70,7 +48,6 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th> 
-                            <th>Actions</th>
                         </tr> 
                     </tfoot>
                   </table>
@@ -85,35 +62,4 @@
 <!-- /.content-wrapper -->
 @endsection 
 
-@section('title', 'Manage Roles')  
-
-@section('scripts') 
-<script> 
-	$(document).on('click', '.delete', function(e) { 
-          
-          var form = $(this).parents('form:first'); 
-
-         var confirmed = false;
-
-           e.preventDefault();
-          
-           swal({
-               title : 'Are you sure want to delete?',
-               text : "Onec Delete, This will be permanently delete!",
-               icon : "warning",
-               buttons: true,
-               dangerMode : true
-           }).then((willDelete) => { 
-               if (willDelete) {
-                   // window.location.href = link;
-                   confirmed = true;
-
-               form.submit();         
-
-               } else {
-                   swal("Safe Data!");   
-               }
-           });
-       });
-</script>
-@endsection 
+@section('title', 'Manage User Roles')  

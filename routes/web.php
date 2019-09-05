@@ -28,8 +28,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/dashboard', 'UsersController@dashboard')->name('dashboard');
     
     /** Admin Profile Routes */
-    Route::get('/admin/profile', 'UsersController@adminProfile')->name('admin.profile');    
-    Route::post('/admin/profile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
+    Route::get('/profile', 'UsersController@adminProfile')->name('admin.profile');    
+    Route::post('/profile/update', 'UsersController@adminProfileUpdate')->name('admin.profile.update');  
 
     /** User Profile Routes */
     Route::get('/user/profile', 'UsersController@userProfile')->name('user.profile');     
@@ -43,13 +43,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
 
     /* Roles Routes */
-    Route::get('/roles/user', 'RolesController@roleuser')->name('roles.roleuser');    
+    Route::get('/role', 'RolesController@index')->name('role.index');       
     
-    Route::get('/roles/roleusercreate', 'RolesController@roleusercreate')->name('roles.roleusercreate');  
-    Route::post('/roles/roleuserstore', 'RolesController@roleuserstore')->name('roles.roleuserstore');  
-
-    /* Role CRUD Routes */
-    Route::resource('roles', 'RolesController');   
        
     
     /* Permission Routes */

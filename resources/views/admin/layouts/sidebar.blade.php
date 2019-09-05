@@ -38,7 +38,7 @@
     </li> 
 
 
-    <li class="treeview {{ (request()->is('roles*')) ? 'active' : '' }}"> 
+    <li class="treeview {{ (request()->is('role.index')) ? 'active' : '' }}">  
       <a href="#">
         <i class="fa fa-shield"></i> 
         <span>Manage Roles</span>
@@ -46,9 +46,8 @@
             <i class="fa fa-angle-left pull-right"></i>
         </span> 
       </a>
-      <ul class="treeview-menu">
-      <!-- <li><a href="{{ route('roles.index') }}">User Roles</a></li> -->
-      <li><a href="{{ route('roles.roleuser') }}">Manage User Roles</a></li>   
+      <ul class="treeview-menu"> 
+      <li><a href="{{ route('role.index') }}">Role List</a></li>     
       </ul> 
     </li>
 
