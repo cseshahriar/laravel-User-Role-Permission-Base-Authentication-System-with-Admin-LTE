@@ -59,6 +59,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
     Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
     // list all lfm routes here... 
+    
+        /* Social profile routes */          
+    Route::resource('social', 'SocialProfileController');  
               
 });     
 

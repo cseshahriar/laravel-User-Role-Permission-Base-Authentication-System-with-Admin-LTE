@@ -80,7 +80,7 @@
         </a>
         <ul class="treeview-menu"> 
             <li><a href="#">Application Information</a></li>       
-            <li><a href="#">Social Profiles</a></li>       
+            <li><a href="{{ route('social.index') }}">Social Profiles</a></li>        
             <li><a href="#">Privacy & Policies</a></li>       
             <li><a href="#">Terms & Conditions</a></li>       
             <li><a href="#">Mission and Vision</a></li>       
