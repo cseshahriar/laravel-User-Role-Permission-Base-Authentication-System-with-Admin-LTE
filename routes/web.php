@@ -52,8 +52,16 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     /* Category routes */          
     Route::resource('category', 'CategoryController');   
+
+
+    Route::get('/media', 'MediaController@index')->name('media');      
+
+    Route::get('/laravel-filemanager', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+    Route::post('/laravel-filemanager/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
+    // list all lfm routes here... 
               
 });     
+
 
 /**
  * User home route

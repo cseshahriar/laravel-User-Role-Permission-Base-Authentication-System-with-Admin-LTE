@@ -47,6 +47,12 @@
       <a href="{{ route('role.index') }}"><i class="fa fa-shield"></i> 
         <span>Roles</span>  
       </a>
+    </li>   
+
+    <li class="{{ (request()->is('media')) ? 'active' : '' }}">
+      <a href="{{ route('media') }}"><i class="fa fa-picture-o"></i> 
+        <span>Media</span>  
+      </a>
     </li> 
 
     <li class="treeview"> 
