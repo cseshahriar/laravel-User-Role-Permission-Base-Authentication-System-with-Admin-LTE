@@ -80,6 +80,6 @@ class PermissionUserTableSeeder extends Seeder
         DB::table('permission_user')->insert([
             'user_id' => '2',
             'permission_id' => '2',  
-        ]);
+        ]); 
     }
 }

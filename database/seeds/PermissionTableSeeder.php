@@ -60,9 +60,7 @@ class PermissionTableSeeder extends Seeder
 
         DB::table('permissions')->insert([
             'name' => 'category-delete'
-        ]); 
-
-
+        ]);   
 
     }
 }

@@ -25,6 +25,6 @@ class UsersTableSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('shahriar'),
             'remember_token' => Str::random(10),
-        ]);
+        ]); 
     }
 }
