@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
-class LoginController extends Controller
+class AdminLoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -28,9 +28,34 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home'; 
+    protected $redirectTo = '/dashboard';
 
     /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return view('admin.auth.login');  
+    } 
+
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     */
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+        return $this->sendFailedLoginResponse($request);
+    }
+
+      /**
      * The user has been authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -55,6 +80,6 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout'); 
+        $this->middleware('guest')->except('logout');
     }
 }

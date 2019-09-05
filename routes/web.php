@@ -10,19 +10,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/**
- * Auth routes with email verified
- */
-Auth::routes(['verify' => true]);  
+// Admin Login Route 
+Route::get('admin', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');  
+Route::get('admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');  
+Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login');     
 
-/**
- * Authenticated routes for admin panel 
- */
+/* Auth routes with email verified */
+Auth::routes(['verify' => true]);   
+ 
+/** Authenticated routes for admin panel */
 Route::group(['middleware' => ['auth', 'verified']], function() {  
 
-    /**
-     * User custom auth routes
-     */ 
     Route::get('/user', 'UsersController@user')->name('user');  
     
     Route::get('/nopermission', 'UsersController@nopermission')->name('nopermission');
