@@ -34,23 +34,23 @@ php artisan db:seed
 
 Set .Env Mail configuration with Gmail
 
-Set social login configuration in .env file
+Set social login configuration in .env file <br>
 
-FACEBOOK_CLIENT_ID=
-FACEBOOK_CLIENT_SECRET=
-FACEBOOK_CLIENT_CALLBACK=
+FACEBOOK_CLIENT_ID= <br>
+FACEBOOK_CLIENT_SECRET= <br>
+FACEBOOK_CLIENT_CALLBACK= <br>
 
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GOOGLE_CLIENT_CALLBACK=
+GOOGLE_CLIENT_ID= <br>
+GOOGLE_CLIENT_SECRET= <br>
+GOOGLE_CLIENT_CALLBACK= <br>
 
 php artisan serve or use Laravel Valet or Laravel Homestead
 
 Visit localhost:8000 in your browser
 
-Visit for admin login /admin/login if you want to access the admin panel. Default Admin User/Password: admin@admin.com/shahriar.
+Visit for admin login /admin/login if you want to access the admin panel. Default Admin User/Password: admin@admin.com/shahriar
 
-Visit user login /login if you want to access the admin panel. Default Admin User/Password: user@user.com/shahriar.
+Visit user login /login if you want to access the admin panel. Default Admin User/Password: user@user.com/shahriar
 
-{{ 'Happy Coding' }} 
+{{ 'Happy Coding' }}  
 
