@@ -10,7 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Permission;
 
-class UsersController extends Controller 
+class UsersController extends Controller  
 {
     public function __construct()
     {
@@ -71,16 +71,17 @@ class UsersController extends Controller
         $User->designation = $request->designation; 
         $User->education = $request->education; 
         $User->skills = $request->skills; 
-        
-        // profile picture update
-        if($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid().'.'.$image->getClientOriginalExtension();
-            $pathWithImgName = public_path('images/users/'.$imageName);
-            $pathWithImgNameFoDb = 'images/users/'.$imageName; 
-            Image::make($image)->resize(600, 600)->save($pathWithImgName);  
-            $User->image = $pathWithImgNameFoDb;         
+
+        // image upload 
+        $path = 'images/users/no-thumbnail.jpeg'; 
+        if ($request->has('image')) {
+            $extension = "." . $request->image->getClientOriginalExtension(); 
+            $name = basename($request->image->getClientOriginalName(), $extension) . time();
+            $name = $name . $extension; 
+            $path = $request->image->storeAs('images/users', $name, 'public'); 
         }
+
+        $User->image = $path;  
 
         $User->mobile = $request->mobile; 
         $User->phone = $request->phone; 
@@ -140,16 +141,18 @@ class UsersController extends Controller
         $User->designation = $request->designation; 
         $User->education = $request->education; 
         $User->skills = $request->skills; 
-        
-        // profile picture update
-        if($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid().'.'.$image->getClientOriginalExtension();
-            $pathWithImgName = public_path('images/users/'.$imageName);
-            $pathWithImgNameFoDb = 'images/users/'.$imageName; 
-            Image::make($image)->resize(600, 600)->save($pathWithImgName);  
-            $User->image = $pathWithImgNameFoDb;         
+
+         // image upload 
+        $path = 'images/users/no-thumbnail.jpeg'; 
+        if ($request->has('image')) {
+            Storage::delete($User->image);   
+            $extension = "." . $request->image->getClientOriginalExtension(); 
+            $name = basename($request->image->getClientOriginalName(), $extension) . time();
+            $name = $name . $extension; 
+            $path = $request->image->storeAs('images/users', $name, 'public'); 
         }
+
+        $User->image = $path; 
 
         $User->mobile = $request->mobile; 
         $User->phone = $request->phone; 
@@ -220,15 +223,17 @@ class UsersController extends Controller
         $User->designation = $request->designation; 
         $User->education = $request->education; 
         
-        // profile picture update
-        if($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid().'.'.$image->getClientOriginalExtension();
-            $pathWithImgName = public_path('images/users/'.$imageName);
-            $pathWithImgNameFoDb = 'images/users/'.$imageName; 
-            Image::make($image)->resize(600, 600)->save($pathWithImgName);  
-            $User->image = $pathWithImgNameFoDb;         
+         // image upload 
+        $path = 'images/users/no-thumbnail.jpeg'; 
+        if ($request->has('image')) {
+            // Storage::delete($User->image);   
+            $extension = "." . $request->image->getClientOriginalExtension(); 
+            $name = basename($request->image->getClientOriginalName(), $extension) . time();
+            $name = $name . $extension; 
+            $path = $request->image->storeAs('images/users', $name, 'public'); 
         }
+
+        $User->image = $path; 
 
         $User->skills = $request->skills; 
         $User->mobile = $request->mobile; 
@@ -317,14 +322,16 @@ class UsersController extends Controller
         $User->education = $request->education; 
         
         // profile picture update
-        if($request->hasFile('image')) {
-            $image = $request->file('image');
-            $imageName = uniqid().'.'.$image->getClientOriginalExtension();
-            $pathWithImgName = public_path('images/users/'.$imageName);
-            $pathWithImgNameFoDb = 'images/users/'.$imageName; 
-            Image::make($image)->resize(600, 600)->save($pathWithImgName);  
-            $User->image = $pathWithImgNameFoDb;         
-        }
+        $path = 'images/users/no-thumbnail.jpeg';    
+        if ($request->has('image')) {
+            Storage::delete($User->image);   
+            $extension = "." . $request->image->getClientOriginalExtension(); 
+            $name = basename($request->image->getClientOriginalName(), $extension) . time();
+            $name = $name . $extension; 
+            $path = $request->image->storeAs('images/users', $name, 'public'); 
+        } 
+
+        $User->image = $path; 
 
         $User->skills = $request->skills; 
         $User->mobile = $request->mobile; 
@@ -396,7 +403,7 @@ class UsersController extends Controller
         $User = User::find($id);
 
         if(!is_null($User)) {
-            
+            Storage::delete($User->image);  
             $delete = $User->delete();
 
             if($delete) {

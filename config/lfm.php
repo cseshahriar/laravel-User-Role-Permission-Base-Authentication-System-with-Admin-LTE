@@ -26,7 +26,7 @@ return [
     // If true, private folders will be created for each signed-in user.
     'allow_multi_user' => false,
     // If true, share folder will be created when allow_multi_user is true.
-    'allow_share_folder' => false,
+    'allow_share_folder' => true, 
 
     // Flexible way to customize client folders accessibility
     // If you want to customize client folders, publish tag="lfm_handler"
@@ -69,22 +69,22 @@ return [
     */
 
     // If true, the uploaded file will be renamed to uniqid() + file extension.
-    'rename_file' => false,
+    'rename_file' => true,
 
     // If rename_file set to false and this set to true, then non-alphanumeric characters in filename will be replaced.
-    'alphanumeric_filename' => false,
+    'alphanumeric_filename' => true,
 
     // If true, non-alphanumeric folder name will be rejected.
     'alphanumeric_directory' => false,
 
     // If true, the uploading file's size will be verified for over than max_image_size/max_file_size.
-    'should_validate_size' => false,
+    'should_validate_size' => true, 
 
     'max_image_size' => 50000,
     'max_file_size' => 50000,
 
     // If true, the uploading file's mime type will be valid in valid_image_mimetypes/valid_file_mimetypes.
-    'should_validate_mime' => false,
+    'should_validate_mime' => true,
 
     // available since v1.3.0
     'valid_image_mimetypes' => [
