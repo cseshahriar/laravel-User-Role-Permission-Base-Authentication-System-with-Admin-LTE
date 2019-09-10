@@ -13,25 +13,9 @@ v1.0.0 beta
 Technologies
 Laravel v5.8.*
 
-<div style="width:100%">
-    <div style="width:25%;float:left">
-        <img src="https://photos.google.com/album/AF1QipNAPFFcWdO9z1rNc5DHJ2bchT1qRyLpg_9Iojq3/photo/AF1QipPjoc7Y1jJfWIaCnfr1L3LQafCxRnt3ZZbm0y5q">
-    </div>  
-    
-     <div style="width:25%;float:left">
-        <img src="https://photos.google.com/album/AF1QipNAPFFcWdO9z1rNc5DHJ2bchT1qRyLpg_9Iojq3/photo/AF1QipOm0IGP39yW1KSwoAuopnk91b7qwViX2fsLvhaz">
-    </div>
-    
-    <div style="width:25%;float:left">
-        <img src="https://photos.google.com/album/AF1QipNAPFFcWdO9z1rNc5DHJ2bchT1qRyLpg_9Iojq3/photo/AF1QipM9rERxWvir2Fkd8RxaDACxR4EDZQHnaXLGIxrI">
-    </div>
-    
-    
-     <div style="width:25%;float:left">
-        <img src=" https://photos.google.com/album/AF1QipNAPFFcWdO9z1rNc5DHJ2bchT1qRyLpg_9Iojq3/photo/AF1QipMiyh4_tqD1T1pKgbrCmyiqBU50KIt77wezQN_J">
-    </div>
-    
-</div>
+
+
+
 
 
 
