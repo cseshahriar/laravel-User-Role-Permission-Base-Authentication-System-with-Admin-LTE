@@ -13,14 +13,14 @@ v1.0.0 beta
 Technologies
 Laravel v5.8.*
 
-
-
-
-
-
-
 Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+![](public/images/rbase-1.png) 
+![](public/images/rbase-2.png)
+![](public/images/rbase-3.png)
+![](public/images/rbase-4.png)
+![](public/images/rbase-5.png) 
 
 What things you need to install the software and how to install them
 
