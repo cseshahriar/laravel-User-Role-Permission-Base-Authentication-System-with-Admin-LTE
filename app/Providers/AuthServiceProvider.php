@@ -189,6 +189,56 @@ class AuthServiceProvider extends ServiceProvider
             }
         }); 
 
+        /**
+         * Gates for menu crud  
+         */
+        Gate::define('menu-read', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('menu-read')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('menu-write', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('menu-write')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('menu-edit', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('menu-edit')) { 
+                return true;
+            } else {
+                return false;  
+            }
+            
+        });
+
+        Gate::define('menu-delete', function () { 
+
+            $userPermissions = Auth::user()->permissions->pluck('name');   
+
+            if($userPermissions->contains('menu-delete')) {   
+                return true;
+            } else {
+                return false;  
+            }
+        });
+
 
     }
 }

@@ -19,7 +19,7 @@ Route::post('admin/login', 'Auth\AdminLoginController@login')->name('admin.login
 Auth::routes(['verify' => true]);   
  
 /** Authenticated routes for admin panel */
-Route::group(['middleware' => ['auth', 'verified']], function() {  
+Route::group(['middleware' => ['auth', 'verified']], function() {    
 
     Route::get('/user', 'UsersController@user')->name('user');  
     
@@ -62,6 +62,20 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     
         /* Social profile routes */          
     Route::resource('social', 'SocialProfileController');  
+
+
+    /* Menu Routes */
+    Route::get('menu/{id}/builder', 'MenuController@builder')->name('menu.builder');    
+    Route::get('menu/{id}/builder/create', 'MenuController@builderCreate')->name('menu.builder.create');  
+    Route::post('menu/{id}/builder/store', 'MenuController@builderStore')->name('menu.builder.store');  
+    
+    Route::get('menu/{id}/builder/edit', 'MenuController@builderEdit')->name('menu.builder.edit'); 
+    Route::put('menu/{id}/builder/update', 'MenuController@builderUpdate')->name('menu.builder.update');   
+
+    Route::delete('menu/{id}/builder/destroy', 'MenuController@builderDestroy')->name('menu.builder.destroy');  
+
+    Route::resource('menu', 'MenuController');        
+  
               
 });     
 

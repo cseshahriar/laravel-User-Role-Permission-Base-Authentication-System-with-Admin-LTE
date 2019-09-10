@@ -27,8 +27,6 @@ class PermissionTableSeeder extends Seeder
             'name' => 'user-delete'
         ]); 
 
-
-
         DB::table('permissions')->insert([
             'name' => 'permission-read'
         ]);
@@ -61,6 +59,23 @@ class PermissionTableSeeder extends Seeder
         DB::table('permissions')->insert([
             'name' => 'category-delete'
         ]);   
+
+
+        DB::table('permissions')->insert([
+            'name' => 'menu-read'
+        ]); 
+
+        DB::table('permissions')->insert([
+            'name' => 'menu-write'
+        ]);
+
+        DB::table('permissions')->insert([
+            'name' => 'menu-edit'
+        ]); 
+
+        DB::table('permissions')->insert([
+            'name' => 'menu-delete'  
+        ]); 
 
     }
 }
