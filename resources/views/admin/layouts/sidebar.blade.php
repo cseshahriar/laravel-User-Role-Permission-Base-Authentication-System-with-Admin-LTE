@@ -81,10 +81,10 @@
         <ul class="treeview-menu"> 
             <li><a href="{{ route('menu.index') }}">Menu Builder</a></li>       
             <li><a href="{{ route('social.index') }}">Social Profiles</a></li>        
-            <li><a href="#">Privacy & Policies</a></li>       
-            <li><a href="#">Terms & Conditions</a></li>       
-            <li><a href="#">Mission and Vision</a></li>       
-            <li><a href="#">Meta Tags</a></li>         
+            {{-- <li><a href="#">Privacy & Policies</a></li>        --}}
+            {{-- <li><a href="#">Terms & Conditions</a></li>        --}}
+            {{-- <li><a href="#">Mission and Vision</a></li>        --}}
+            {{-- <li><a href="#">Meta Tags</a></li>          --}} 
         </ul> 
     </li> 
 

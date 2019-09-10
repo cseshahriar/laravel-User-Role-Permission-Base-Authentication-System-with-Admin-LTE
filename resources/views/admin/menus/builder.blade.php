@@ -41,9 +41,9 @@
                     
                     @php 
                       $childMenuItems = DB::table('menu_items')->where('menu_id', $menu->id)->where('parent_id', '=', $menuItem->id)->get(); 
-                    @endphp
+                    @endphp 
 
-                    <li class="list-group-item" style="{{ count($childMenuItems) > 0 ? 'height: 120px': 'height: 50px'}}"> 
+                    <li class="list-group-item" style="{{ count($childMenuItems) > 0 ? '': 'height: 50px'}}"> 
                       <span style="display: inline-block;float: right;padding: 0;margin:0"> 
                          <a href="{{ route('menu.builder.edit', $menuItem->id) }}" class="text-white btn btn-sm btn-info"><i class="fa fa-pencil-square text-info"></i> Edit</a>
 

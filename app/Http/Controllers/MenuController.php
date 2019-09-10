@@ -101,6 +101,7 @@ class MenuController extends Controller
     {
         $menu = Menu::find($id);
         if (!is_null($menu)) {
+            $menuItemDelete = DB::table('menu_items')->where('menu_id', $id)->delete();   
             $menu->delete(); 
             return redirect(route('menu.index'))->with(['message' => 'Successfully Menu Deleted', 'alert-type' => 'success']); 
         } 
@@ -181,8 +182,9 @@ class MenuController extends Controller
     public function builderDestroy($id)   
     {
         $menuItemDelete = DB::table('menu_items')->where('id', $id)->delete(); 
+        $menuChildItemDelete = DB::table('menu_items')->where('parent_id', '=', $id)->delete();
 
-        if (!is_null($menuItemDelete)) {  
+        if ($menuItemDelete) {    
             return redirect(route('menu.index'))->with(['message' => 'Successfully Deleted Menu Item', 'alert-type' => 'success']);  
         }
     }
