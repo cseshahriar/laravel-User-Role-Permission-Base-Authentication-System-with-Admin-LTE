@@ -1,4 +1,4 @@
-# laravel User Role Permission Base Authenticationn System with Admin LTE
+# laravel User Role Permission Base Authentication System with Admin LTE
 
 This is a startup laravel admin panel. I believe anybody can use it, who want to save time.
 
