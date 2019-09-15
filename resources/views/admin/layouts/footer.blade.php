@@ -36,6 +36,7 @@
 
 <script src="{{ asset('admin/js/toastr.min.js') }}"></script>  
 <script src="{{ asset('admin/js/sweetalert.min.js') }}"></script>  
+<script src="{{ asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script> 
 
 
 <script>
@@ -61,7 +62,7 @@
         
         $('.select2').select2();
 
-        $('.datatable').DataTable(); 
+        $('.datatable').DataTable({ dateFormat: 'yy-mm-dd' });   
 
         $('.datatable2').DataTable({
         'paging'      : true,

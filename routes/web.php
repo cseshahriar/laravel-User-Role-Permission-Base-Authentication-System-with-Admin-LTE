@@ -74,7 +74,13 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     Route::delete('menu/{id}/builder/destroy', 'MenuController@builderDestroy')->name('menu.builder.destroy');  
 
-    Route::resource('menu', 'MenuController');        
+    Route::resource('menu', 'MenuController');      
+
+    /* product routes */  
+    Route::resource('attribute', 'AttributeController');         
+    Route::resource('option', 'OptionController');          
+    Route::resource('product', 'ProductController');        
+    Route::resource('tax', 'TaxController');           
   
               
 });     

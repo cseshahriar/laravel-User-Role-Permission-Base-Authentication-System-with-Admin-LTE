@@ -71,7 +71,7 @@
                             @endforeach
                          </ul> 
                         </td>  
-                      <td><img src="{{ asset($user->image) }}" alt="" style="width:60px;border-radius:5px"></td> 
+                      <td><img src="{{ asset('storage/'.$user->image) }}" alt="" style="width:60px;border-radius:5px"></td>  
                       <td>
                         
                           <div class="button-group">

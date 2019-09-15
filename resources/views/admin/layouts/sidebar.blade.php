@@ -50,10 +50,10 @@
     </li>   
 
     <li class="{{ (request()->is('media')) ? 'active' : '' }}">
-      <a href="{{ route('media') }}"><i class="fa fa-picture-o"></i> 
+      <a href="{{ route('media') }}"><i class="fa fa-camera"></i>  
         <span>Media</span>  
       </a>
-    </li> 
+    </li>  
 
     <li class="treeview"> 
         <a href="#">
@@ -68,6 +68,21 @@
             <a href="{{ route('category.index') }}">All Categories</a>  
             </li>       
         </ul> 
+    </li>    
+
+    <li class="treeview"> 
+        <a href="#">
+          <i class="fa fa-shopping-bag"></i> 
+          <span>Products</span>   
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+          </span> 
+        </a>
+        <ul class="treeview-menu"> 
+          <li><a href="{{ route('product.index') }}">Products</a></li>           
+          <li><a href="{{ route('attribute.index') }}">Attributes</a></li>                      
+          <li><a href="{{ route('tax.index') }}">Tax</a></li>                      
+        </ul> 
     </li> 
    
     <li class="treeview">  
@@ -81,10 +96,6 @@
         <ul class="treeview-menu"> 
             <li><a href="{{ route('menu.index') }}">Menu Builder</a></li>       
             <li><a href="{{ route('social.index') }}">Social Profiles</a></li>        
-            {{-- <li><a href="#">Privacy & Policies</a></li>        --}}
-            {{-- <li><a href="#">Terms & Conditions</a></li>        --}}
-            {{-- <li><a href="#">Mission and Vision</a></li>        --}}
-            {{-- <li><a href="#">Meta Tags</a></li>          --}} 
         </ul> 
     </li> 
 
