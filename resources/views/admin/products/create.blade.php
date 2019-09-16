@@ -102,7 +102,7 @@
                         @endphp
 
                           <label class="form-control-label">Select Category: </label>
-                          <select name="parent_id[]" id="parent_id" class="select2 form-control" multiple="multiple"> 
+                          <select name="category_id[]" id="category_id" class="select2 form-control" multiple="multiple">   
                             @if(isset($categories)) 
                             <option value="0">Top Level</option>
                             @foreach($categories as $cat)

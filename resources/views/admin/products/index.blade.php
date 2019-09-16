@@ -120,7 +120,7 @@
 <!-- /.content-wrapper -->
 @endsection 
 
-@section('title', 'Manage Categories')     
+@section('title', 'Viewing Products')     
 
 @section('scripts') 
 <script> 
