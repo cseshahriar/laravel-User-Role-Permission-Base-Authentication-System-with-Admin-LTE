@@ -43,7 +43,7 @@ Set .Env Mail configuration with Gmail
 
 Set social login configuration in .env file <br>
 
-<pr>FACEBOOK_CLIENT_ID=
+<pre>FACEBOOK_CLIENT_ID=
 FACEBOOK_CLIENT_SECRET= 
 FACEBOOK_CLIENT_CALLBACK=</pre>
 
