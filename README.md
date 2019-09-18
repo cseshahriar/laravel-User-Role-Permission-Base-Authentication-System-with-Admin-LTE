@@ -1,17 +1,18 @@
 # laravel User Role Permission Base Authentication System with Admin LTE
 
-This is a startup laravel admin panel. I believe anybody can use it, who want to save time.
+This is a boilerplate laravel admin panel. I believe anybody can use it, who want to save time.
 
-Author
-Name : MD Shahriar Hosen  <br>
-Email : cse.shahriar.hosen@gmail.com  <br> 
-URL: http://codershahriar.com <br>
+<pre>
+Author : MD Shahriar Hosen 
+Email : cse.shahriar.hosen@gmail.com 
+URL: http://codershahriar.com </pre>
 
 Version
 v1.0.0 beta
 
 Technologies
 Laravel v5.8.*
+Admin Lte v2
 
 Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -26,29 +27,29 @@ What things you need to install the software and how to install them
 
 Clone the repo and cd into it
 
-composer install
+<pre><code>composer install</code></pre>
 
 Rename or copy .env.example file to .env
 
-php artisan key: generate
+<pre><code>php artisan key: generate</code></pre>
 
 Set your database credentials in your .env file
 
-php artisan migrate
+<pre><code>php artisan migrate</code></pre>
 
-php artisan db:seed
+<pre><code>php artisan db:seed</code></pre>
 
 Set .Env Mail configuration with Gmail
 
 Set social login configuration in .env file <br>
 
-FACEBOOK_CLIENT_ID= <br>
-FACEBOOK_CLIENT_SECRET= <br>
-FACEBOOK_CLIENT_CALLBACK= <br>
+<pr>FACEBOOK_CLIENT_ID=
+FACEBOOK_CLIENT_SECRET= 
+FACEBOOK_CLIENT_CALLBACK=</pre>
 
-GOOGLE_CLIENT_ID= <br>
-GOOGLE_CLIENT_SECRET= <br>
-GOOGLE_CLIENT_CALLBACK= <br>
+<pre>GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_CLIENT_CALLBACK= </pre>
 
 php artisan serve or use Laravel Valet or Laravel Homestead
 
